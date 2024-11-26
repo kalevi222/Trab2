@@ -28,6 +28,9 @@
     <Compile Update="Formularios\FrmFrmQuantidadeValor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\FrmGuiaVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\FrmMarca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -38,6 +41,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\FrmSelecionaProduto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\FrmUsuario.cs">

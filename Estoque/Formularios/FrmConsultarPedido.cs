@@ -28,10 +28,9 @@ namespace Estoque.Formularios
         {
             CarregaGrid();
             GrdItens2.Visible = false;
-            CBPesquisa.Items.Add("Opção 1");
-            CBPesquisa.Items.Add("Opção 2");
-            CBPesquisa.Items.Add("Opção 3");
-            CBPesquisa.Items.Add("Opção 4");
+            CBPesquisa.Items.Add("Id Pedido");
+            CBPesquisa.Items.Add("Fornecedor");
+            CBPesquisa.Items.Add("Numero do Pedido");
         }
 
         private void BtnFechar_Click(object sender, EventArgs e)
@@ -60,9 +59,13 @@ namespace Estoque.Formularios
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Cod = true;
+            CodigoPedido2 = int.Parse(TxtID.Text);
+            CarregaGrid2();
             CarregaGrid();
-            GrdItens2.Visible = false;
-            GrdItens.Visible = true;
+            TxtPesquisa.Text = "";
+            Cod = false;
+
         }
 
         private void GrdItens_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -84,6 +87,8 @@ namespace Estoque.Formularios
                     GrdItens2.Visible = true;
                     GrdPesquisa = 1;
                     CBPesquisa.Items.Clear();
+                    CBPesquisa.Items.Add("Id Produto");
+                    CBPesquisa.Items.Add("Nome do Produto");
                 }
 
                 Cod = false;
@@ -104,6 +109,10 @@ namespace Estoque.Formularios
             GrdItens2.Visible = false;
             GrdItens.Visible = true;
             GrdPesquisa = 0;
+            CBPesquisa.Items.Clear();
+            CBPesquisa.Items.Add("Id Pedido");
+            CBPesquisa.Items.Add("Fornecedor");
+            CBPesquisa.Items.Add("Numero do Pedido");
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
@@ -112,13 +121,13 @@ namespace Estoque.Formularios
             {
                 if (GrdPesquisa == 0)
                 {
-                    var oPedido = Pedido.Seleciona(PesquisaTipo, TxtPesquisa.Text); // Chamando o método estático
+                    var oPedido = Pedido.Seleciona2(PesquisaTipo, TxtPesquisa.Text); // Chamando o método estático
                     GrdItens.DataSource = null; // Limpa qualquer fonte anterior
                     GrdItens.DataSource = oPedido; // Vincula a lista ao DataGridView
                 }
                 else if (GrdPesquisa == 1)
                 {
-                    var oPedido = Pedido.Seleciona(PesquisaTipo, TxtPesquisa.Text); // Chamando o método estático
+                    var oPedido = Pedido.Seleciona3(PesquisaTipo, TxtPesquisa.Text, int.Parse(TxtID.Text)); // Chamando o método estático
                     GrdItens2.DataSource = null; // Limpa qualquer fonte anterior
                     GrdItens2.DataSource = oPedido; // Vincula a lista ao DataGridView
                 }
@@ -132,34 +141,35 @@ namespace Estoque.Formularios
 
         private void CBPesquisa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CBPesquisa.SelectedIndex == 0)
+            if (GrdPesquisa == 0)
             {
-                PesquisaTipo = "E.ID";
-            }
-            else if (CBPesquisa.SelectedIndex == 1)
+                if (CBPesquisa.SelectedIndex == 0)
+                {
+                    PesquisaTipo = "P.id";
+                }
+                else if (CBPesquisa.SelectedIndex == 1)
+                {
+                    PesquisaTipo = "F.Nome";
+                }
+                else if (CBPesquisa.SelectedIndex == 2)
+                {
+                    PesquisaTipo = "NumPedido";
+                }
+            };
+            
+            if (GrdPesquisa == 1)
             {
-                PesquisaTipo = "P.Nome";       
-            }
-            else if (CBPesquisa.SelectedIndex == 2)
-            {
-                PesquisaTipo = "Preco";
-            }
-            else if (CBPesquisa.SelectedIndex == 3)
-            {
-                PesquisaTipo = "QuantidadeAdicionada";
-            }
-            else if (CBPesquisa.SelectedIndex == 4)
-            {
-                PesquisaTipo = "Lote"; 
-            }
-            else if (CBPesquisa.SelectedIndex == 5)
-            {
-                PesquisaTipo = "DataAdicao";
-            }
-            else if (CBPesquisa.SelectedIndex == 6)
-            {
-                PesquisaTipo = "Validade";
-            }
+                if (CBPesquisa.SelectedIndex == 0)
+                {
+                    PesquisaTipo = "PP.Produto_id";
+                }
+                else if (CBPesquisa.SelectedIndex == 1)
+                {
+                    PesquisaTipo = "Pro.Nome";
+                }
+
+            };
+            
         }
     }
 }

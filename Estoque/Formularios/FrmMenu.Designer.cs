@@ -60,6 +60,7 @@
             menuStrip1.Size = new Size(1375, 24);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // vendaToolStripMenuItem
             // 
@@ -70,6 +71,7 @@
             // 
             // GuiaVendas
             // 
+            GuiaVendas.Enabled = false;
             GuiaVendas.Name = "GuiaVendas";
             GuiaVendas.Size = new Size(183, 22);
             GuiaVendas.Text = "Abrir Guia de Vendas";
@@ -77,6 +79,7 @@
             // 
             // HistoVendas
             // 
+            HistoVendas.Enabled = false;
             HistoVendas.Name = "HistoVendas";
             HistoVendas.Size = new Size(183, 22);
             HistoVendas.Text = "Historico de Vendas";
@@ -90,6 +93,7 @@
             // 
             // AddProduto
             // 
+            AddProduto.Enabled = false;
             AddProduto.Name = "AddProduto";
             AddProduto.Size = new Size(230, 22);
             AddProduto.Text = "Adcionar Produto";
@@ -117,6 +121,7 @@
             // 
             // CadCategoria
             // 
+            CadCategoria.Enabled = false;
             CadCategoria.Name = "CadCategoria";
             CadCategoria.Size = new Size(198, 22);
             CadCategoria.Text = "Cadastrar Categoria";
@@ -124,6 +129,7 @@
             // 
             // CadFornecedor
             // 
+            CadFornecedor.Enabled = false;
             CadFornecedor.Name = "CadFornecedor";
             CadFornecedor.Size = new Size(198, 22);
             CadFornecedor.Text = "Cadastrar Fornecedores";
@@ -131,6 +137,7 @@
             // 
             // CadMarca
             // 
+            CadMarca.Enabled = false;
             CadMarca.Name = "CadMarca";
             CadMarca.Size = new Size(198, 22);
             CadMarca.Text = "Cadastrar Marcas";
@@ -138,6 +145,7 @@
             // 
             // CadProduto
             // 
+            CadProduto.Enabled = false;
             CadProduto.Name = "CadProduto";
             CadProduto.Size = new Size(198, 22);
             CadProduto.Text = "Cadastrar Produto";
@@ -150,6 +158,7 @@
             // 
             // CadUsuario
             // 
+            CadUsuario.Enabled = false;
             CadUsuario.Name = "CadUsuario";
             CadUsuario.Size = new Size(198, 22);
             CadUsuario.Text = "Cadastrar Usuarios";
@@ -164,6 +173,7 @@
             // 
             // AddPedidos
             // 
+            AddPedidos.Enabled = false;
             AddPedidos.Name = "AddPedidos";
             AddPedidos.Size = new Size(180, 22);
             AddPedidos.Text = "Adcionar Pedidos";
@@ -186,15 +196,16 @@
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(112, 22);
-            logoutToolStripMenuItem.Text = "Logout";
+            logoutToolStripMenuItem.Size = new Size(180, 22);
+            logoutToolStripMenuItem.Text = "Voltar ao Login";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // fecharToolStripMenuItem
             // 
             fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            fecharToolStripMenuItem.Size = new Size(112, 22);
-            fecharToolStripMenuItem.Text = "Fechar";
+            fecharToolStripMenuItem.Size = new Size(180, 22);
+            fecharToolStripMenuItem.Text = "Fechar o programa";
+            fecharToolStripMenuItem.Click += fecharToolStripMenuItem_Click;
             // 
             // FrmMenu
             // 
@@ -216,24 +227,24 @@
         #endregion
         private MenuStrip menuStrip1;
         private ToolStripMenuItem gerirProdutosToolStripMenuItem;
-        private ToolStripMenuItem RegistroProduto;
-        private ToolStripMenuItem verificarValidadeDeProdutosToolStripMenuItem;
-        private ToolStripMenuItem AddProduto;
         private ToolStripMenuItem cadastrosToolStripMenuItem;
-        private ToolStripMenuItem CadCategoria;
-        private ToolStripMenuItem CadFornecedor;
-        private ToolStripMenuItem CadMarca;
-        private ToolStripMenuItem CadUsuario;
         private ToolStripMenuItem sairToolStripMenuItem;
-        private ToolStripMenuItem CadProduto;
         private ToolStripSeparator toolStripMenuItem2;
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem fecharToolStripMenuItem;
         private ToolStripMenuItem vendaToolStripMenuItem;
+        private ToolStripMenuItem pedidosToolStripMenuItem;
+        public ToolStripMenuItem RegistroProduto;
+        public ToolStripMenuItem consultarPedidosToolStripMenuItem;
+        private ToolStripMenuItem verificarValidadeDeProdutosToolStripMenuItem;
+        private ToolStripMenuItem AddProduto;
+        private ToolStripMenuItem CadCategoria;
+        private ToolStripMenuItem CadFornecedor;
+        private ToolStripMenuItem CadMarca;
+        private ToolStripMenuItem CadUsuario;
+        private ToolStripMenuItem CadProduto;
         private ToolStripMenuItem GuiaVendas;
         private ToolStripMenuItem HistoVendas;
-        private ToolStripMenuItem pedidosToolStripMenuItem;
         private ToolStripMenuItem AddPedidos;
-        private ToolStripMenuItem consultarPedidosToolStripMenuItem;
     }
 }

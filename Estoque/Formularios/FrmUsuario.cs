@@ -194,14 +194,12 @@ namespace Estoque
         {
             if (ValidaControles())
             {
-                if (incluir)
+                try
                 {
-
                     Usuarios oUsuario = new Usuarios
                     {
                         Nome = txtNome.Text,
                         Senha = txtSenha.Text,
-
                         CadPro2 = RegProd,
                         CadCat2 = RegCat,
                         PAddPro2 = AddProd,
@@ -209,52 +207,38 @@ namespace Estoque
                         CadMarca2 = RegMarca,
                         CadFor2 = RegFornecedor,
                         PADM2 = ADM,
-                        PPedido2 = RegPedido,
+                        PPedido2 = RegPedido
                     };
 
-                    try
+                    if (incluir)
                     {
-                        oUsuario.Incluir();
-                        CarregaGrid();
-                        LimpaControles();
-                        txtID.Enabled = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Um erro ocorreu ao incluir o Usuario: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtID.Focus();
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        Usuarios oUsuario = new Usuarios
+                        if (Usuarios.NomeJaExiste(txtNome.Text))
                         {
-                            Id = int.Parse(txtID.Text),
-                            Nome = txtNome.Text,
-                            Senha = txtSenha.Text,
-                            CadPro2 = RegProd,
-                            CadCat2 = RegCat,
-                            PAddPro2 = AddProd,
-                            PVenda2 = RegVenda,
-                            CadMarca2 = RegMarca,
-                            CadFor2 = RegFornecedor,
-                            PADM2 = ADM,
-                            PPedido2 = RegPedido,
-
-                        };
+                            MessageBox.Show("Este nome de usuário já existe. Por favor, escolha outro.",
+                                ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtNome.Focus();
+                            return;
+                        }
+                        else
+                        {
+                            oUsuario.Incluir();
+                        }
+                    }
+                    else
+                    {
+                        oUsuario.Id = int.Parse(txtID.Text);
                         Usuarios.AlterarUsuario(oUsuario);
                         incluir = true;
-                        LimpaControles();
-                        CarregaGrid();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Um erro ocorreu ao alterar o Usuario: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtID.Focus();
                     }
 
+                    LimpaControles();
+                    CarregaGrid();
+                    txtID.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Um erro ocorreu: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtID.Focus();
                 }
             }
         }

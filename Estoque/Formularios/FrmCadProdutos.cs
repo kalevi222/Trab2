@@ -69,6 +69,7 @@ namespace Estoque.Formularios
         {
             TxtID.Text = "";
             TxtNome.Text = "";
+            TxtBarra.Text = "";
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
@@ -111,7 +112,7 @@ namespace Estoque.Formularios
                             MarcaId2 = CBMarca.SelectedValue.ToString(),
                             CatId2 = CBCat.SelectedValue.ToString(),
                             //Preco = float.Parse(TxtPreco.Text),
-                            Barra = int.Parse(TxtBarra.Text),
+                            Barra = Int64.Parse(TxtBarra.Text),
 
                         };
                         Produto.AlterarProduto(oProduto);

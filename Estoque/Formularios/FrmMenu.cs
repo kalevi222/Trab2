@@ -2,6 +2,7 @@
 
 using Estoque.Classes;
 using Estoque.Formularios;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Estoque
 {
@@ -15,6 +16,16 @@ namespace Estoque
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+            FrmLogin loginForm = new FrmLogin();
+
+
+            loginForm.StartPosition = FormStartPosition.CenterParent;
+            loginForm.ShowDialog(this);
+            Permissoes();
+
+        }
+        private void Permissoes()
+        {
             if (Login.PADM2 == false)
             {
 
@@ -23,35 +34,75 @@ namespace Estoque
                 if (Login.PPro2 == false)
                 {
                     AddProduto.Enabled = false;
-                };
+                }
+                else
+                {
+                    AddProduto.Enabled = true;
+                }
                 if (Login.CadCat2 == false)
                 {
                     CadCategoria.Enabled = false;
-                };
+                }
+                else
+                {
+                    CadCategoria.Enabled = true;
+                }
                 if (Login.CadPro2 == false)
                 {
                     CadProduto.Enabled = false;
-                };
+                }
+                else
+                {
+                    CadProduto.Enabled = true;
+                }
                 if (Login.CadFor2 == false)
                 {
                     CadFornecedor.Enabled = false;
-                };
+                }
+                else
+                {
+                    CadFornecedor.Enabled = true;
+                }
                 if (Login.CadMarca2 == false)
                 {
                     CadMarca.Enabled = false;
-                };
-                if (Login.PPedido2 == true)
+                }
+                else
+                {
+                    CadMarca.Enabled = true;
+                }
+                if (Login.PPedido2 == false)
                 {
                     AddPedidos.Enabled = false;
-                };
+                }
+                else
+                {
+                    AddPedidos.Enabled = true;
+                }
                 if (Login.PVenda2 == false)
                 {
                     GuiaVendas.Enabled = false;
                     HistoVendas.Enabled = false;
-                };
+                }
+                else
+                {
+                    GuiaVendas.Enabled = true;
+                    HistoVendas.Enabled = true;
+                }
+            }
+            else
+            {
+                GuiaVendas.Enabled = true;
+                HistoVendas.Enabled = true;
+                AddPedidos.Enabled = true;
+                CadMarca.Enabled = true;
+                CadFornecedor.Enabled = true;
+                CadProduto.Enabled = true;
+                CadCategoria.Enabled = true;
+                AddProduto.Enabled = true;
+                CadUsuario.Enabled = true;
             }
         }
-
         private void gerirProdutosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGerir oFrm = new FrmGerir();
@@ -66,10 +117,33 @@ namespace Estoque
             oFrm.Show();
         }
 
+        private void LimparPermissao()
+        {
+            Login.PPro2 = false;
+            Login.PADM2 = false;
+            Login.PPro2 = false;
+            Login.CadCat2 = false;
+            Login.CadPro2 = false;
+            Login.CadFor2 = false;
+            Login.CadMarca2 = false;
+            Login.PPedido2 = false;
+            Login.PVenda2 = false;
+
+            Permissoes();
+        
+        }
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            LimparPermissao();
 
-            this.Close();
+            FrmLogin loginForm = new FrmLogin();
+
+
+            loginForm.StartPosition = FormStartPosition.CenterParent;
+            loginForm.ShowDialog(this);
+
+            Permissoes();
+
         }
 
         private void cadastrarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,7 +198,9 @@ namespace Estoque
 
         private void GuiaVendas_Click(object sender, EventArgs e)
         {
-
+            FrmGuiaVendas oFrm = new FrmGuiaVendas();
+            oFrm.MdiParent = this;
+            oFrm.Show();
         }
 
         private void consultarPedidosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,6 +208,16 @@ namespace Estoque
             FrmConsultarPedido oFrm = new FrmConsultarPedido();
             oFrm.MdiParent = this;
             oFrm.Show();
+        }
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

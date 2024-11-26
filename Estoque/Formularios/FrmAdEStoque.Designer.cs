@@ -63,6 +63,7 @@
             BtnLimpar = new Button();
             BtnRegistros = new Button();
             BtnCadastrar = new Button();
+            BtnPedidos = new Button();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
@@ -362,11 +363,22 @@
             BtnCadastrar.UseVisualStyleBackColor = true;
             BtnCadastrar.Click += BtnCadastrar_Click;
             // 
+            // BtnPedidos
+            // 
+            BtnPedidos.Location = new Point(965, 295);
+            BtnPedidos.Name = "BtnPedidos";
+            BtnPedidos.Size = new Size(216, 41);
+            BtnPedidos.TabIndex = 27;
+            BtnPedidos.Text = "Consultar Pedidos";
+            BtnPedidos.UseVisualStyleBackColor = true;
+            BtnPedidos.Click += BtnPedidos_Click;
+            // 
             // FrmAdEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1193, 450);
+            Controls.Add(BtnPedidos);
             Controls.Add(BtnCadastrar);
             Controls.Add(BtnRegistros);
             Controls.Add(BtnLimpar);
@@ -438,5 +450,6 @@
         private Button BtnLimpar;
         private Button BtnRegistros;
         private Button BtnCadastrar;
+        private Button BtnPedidos;
     }
 }

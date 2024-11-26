@@ -39,10 +39,9 @@ namespace Estoque
         
                 if (txtUsuario.Text == Login.Nome2 && txtSenha.Text == Login.Senha2)
                 {
-                    FrmMenu oFrm = new FrmMenu();
-                    oFrm.Show();
-                    LimpaControles();
+
                     LblAviso.Text = "";
+                    this.Close();
                 }
                 else
                 {
@@ -50,7 +49,6 @@ namespace Estoque
                 };
             
         }
-
         private void FrmLogin_KeyPress(object sender, KeyPressEventArgs e)
         {
 

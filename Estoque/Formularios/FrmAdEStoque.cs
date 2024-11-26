@@ -150,11 +150,14 @@ namespace Estoque.Formularios
             CarregaGrid();
 
 
-
-            if (Login.CadPro2 == false)
+            if (Login.PADM2 == false)
             {
-                BtnCadastrar.Enabled = false;
+                if (Login.CadPro2 == false)
+                {
+                    BtnCadastrar.Enabled = false;
+                }
             }
+            
         }
 
         private void CarregarCB()
@@ -289,6 +292,12 @@ namespace Estoque.Formularios
         private void CBProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnPedidos_Click(object sender, EventArgs e)
+        {
+            FrmConsultarPedido oFrm = new FrmConsultarPedido();
+            oFrm.Show();
         }
     }
 }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\trabalho\\trab2\\Estoque\\Estoque.csproj": {}
+    "C:\\Users\\Kalevi\\Desktop\\trab2\\Estoque\\Estoque.csproj": {}
   },
   "projects": {
-    "E:\\trabalho\\trab2\\Estoque\\Estoque.csproj": {
+    "C:\\Users\\Kalevi\\Desktop\\trab2\\Estoque\\Estoque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\trabalho\\trab2\\Estoque\\Estoque.csproj",
+        "projectUniqueName": "C:\\Users\\Kalevi\\Desktop\\trab2\\Estoque\\Estoque.csproj",
         "projectName": "Estoque",
-        "projectPath": "E:\\trabalho\\trab2\\Estoque\\Estoque.csproj",
-        "packagesPath": "C:\\Users\\SUPORTE\\.nuget\\packages\\",
-        "outputPath": "E:\\trabalho\\trab2\\Estoque\\obj\\",
+        "projectPath": "C:\\Users\\Kalevi\\Desktop\\trab2\\Estoque\\Estoque.csproj",
+        "packagesPath": "C:\\Users\\Kalevi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kalevi\\Desktop\\trab2\\Estoque\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\SUPORTE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kalevi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -74,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -61,13 +61,22 @@ namespace Estoque.Formularios
                     try
                     {
                         oCategoria.Incluir();
+                        MessageBox.Show("Categoria incluída com sucesso!", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         CarregaGrid();
                         LimpaControles();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Um erro ocorreu ao incluir a Categoria: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        TxtID.Focus();
+                        // Diferenciar mensagens para duplicidade e outros erros
+                        if (ex.Message.Contains("Já existe uma categoria com este nome"))
+                        {
+                            MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Um erro ocorreu ao incluir a Categoria: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        TxtNome.Focus();
                     }
                 }
                 else
@@ -82,6 +91,7 @@ namespace Estoque.Formularios
                         };
                         Categoria.AlterarCategoria(oCategoria);
                         incluir = true;
+                        MessageBox.Show("Categoria alterada com sucesso!", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpaControles();
                         CarregaGrid();
                         TxtID.Enabled = true;
