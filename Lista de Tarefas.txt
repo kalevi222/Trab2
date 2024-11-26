@@ -1,0 +1,20 @@
+*No formulario Menu Abrir o de login como popup
+*Caso os de cima nao der Rework no login a trazendo para o do menu
+***Fazer Segunda - Ver Pedidos - Consultar Pedidos
+** Fazer Segunda - Ver Validade
+***Fazer terça/Quarta - Vendas - Guia de Vendas, Historico
+** Usuario - Nao poder ter usuario repetido
+** Produto - Nao poder ter produto com o mesmo codigo de barra e nome
+*** Adcionar Pesquisa a todos os cadastros
+*Guia Usuario - Perfil
+
+
+Mudar SQL
+
+CodigoBarra BigInt
+Estoque Add preco
+Produto Remover Preco
+
+Pedido has produto
+Add Quantidade int, Valor float
+*Nota: Nao tem campo para dizer quanto do produto pediu e nem o valor que comprou
