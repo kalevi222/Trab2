@@ -80,25 +80,25 @@ namespace Estoque.Formularios
             TxtId.Text = Venda.Id2.ToString();
         }
 
-        private void CBProduto_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CBProduto.SelectedValue != null)
-            {
-                // Obtem o ID do Produto da ComboBox
-                string idProduto = CBProduto.SelectedValue.ToString();
+        //private void CBProduto_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (CBProduto.SelectedValue != null)
+        //    {
+        //        // Obtem o ID do Produto da ComboBox
+        //        string idProduto = CBProduto.SelectedValue.ToString();
 
-                // Abre o novo formulário e passa o ID do Produto
-                FrmSelecionaProduto formSelecao = new FrmSelecionaProduto(idProduto);
-                if (formSelecao.ShowDialog() == DialogResult.OK)
-                {
-                    // Recebe os valores do formulário filho
-                    TxtLote.Text = formSelecao.Lote;
-                    TxtEstoque.Text = formSelecao.EmEstoque.ToString();
-                    TxtBarra.Text = formSelecao.CodigoBarras;
-                    TxtValorUnitario.Text = formSelecao.ValorUnitario.ToString("F2");
-                }
-            }
-        }
+        //        // Abre o novo formulário e passa o ID do Produto
+        //        FrmSelecionaProduto formSelecao = new FrmSelecionaProduto(idProduto);
+        //        if (formSelecao.ShowDialog() == DialogResult.OK)
+        //        {
+        //            // Recebe os valores do formulário filho
+        //            TxtLote.Text = formSelecao.Lote;
+        //            TxtEstoque.Text = formSelecao.EmEstoque.ToString();
+        //            TxtBarra.Text = formSelecao.CodigoBarras;
+        //            TxtValorUnitario.Text = formSelecao.ValorUnitario.ToString("F2");
+        //        }
+        //    }
+        //}
 
         private void GrdVendas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
