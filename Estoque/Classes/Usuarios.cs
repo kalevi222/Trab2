@@ -148,5 +148,17 @@ namespace Estoque.Classes
                 comando.ExecuteNonQuery();
             }
         }
+        public static Boolean NomeJaExiste(string nome)
+        {
+            using (var oCn = Data.Conexao())
+            {
+                string SQL = "SELECT COUNT(*) FROM Usuario WHERE Nome = @Nome";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.Parameters.AddWithValue("@Nome", nome);
+
+                int count = (int)comando.ExecuteScalar();
+                return count > 0;
+            }
+        }
     }
 }

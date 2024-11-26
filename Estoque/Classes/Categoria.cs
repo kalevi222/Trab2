@@ -48,6 +48,7 @@ namespace Estoque.Classes
                 Categoria? Retorno = null;
                 string SQL = $"select ID, Nome from Categoria Where Id={Codigo}";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.Parameters.AddWithValue("@Id", Codigo);
                 SqlDataReader oDr = comando.ExecuteReader();
                 while (oDr.Read())
                 {
@@ -61,11 +62,26 @@ namespace Estoque.Classes
         }
         public void Incluir()
         {
-        
+
             using (var oCn = Data.Conexao())
             {
-                string SQL = $"insert into Categoria values ('{this.Nome.Replace("'", "")}')";
+                // Verificar se o nome já existe
+                string verificaSQL = "SELECT COUNT(*) FROM Categoria WHERE Nome = @Nome";
+                SqlCommand verificaComando = new SqlCommand(verificaSQL, oCn);
+                verificaComando.Parameters.AddWithValue("@Nome", this.Nome);
+
+                int count = (int)verificaComando.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    throw new Exception("Já existe uma categoria com este nome.");
+                }
+
+                // Inserir a nova categoria
+                string SQL = "INSERT INTO Categoria (Nome) VALUES (@Nome)";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.Parameters.AddWithValue("@Nome", this.Nome);
+
                 comando.ExecuteNonQuery();
             }
 
@@ -73,7 +89,7 @@ namespace Estoque.Classes
 
         public static void AlterarCategoria(Categoria oCategoria)
         {
-            
+
             using (var oCn = Data.Conexao())
             {
                 string SQL = $"Update Categoria Set Nome= '{oCategoria.Nome.Replace("'", "")}' where ID = {oCategoria.Id}";

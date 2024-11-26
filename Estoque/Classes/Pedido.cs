@@ -73,7 +73,7 @@ namespace Estoque.Classes
         public static List<Pedido> ObterProdutos()
         {
 
-            using (var oCn = Data.Conexao()) 
+            using (var oCn = Data.Conexao())
             {
                 List<Pedido> Retorno = new List<Pedido>();
                 string SQL = "SELECT id, Nome FROM Produto";
@@ -189,10 +189,10 @@ namespace Estoque.Classes
             {
                 Codigo = FrmAddPedido.CodigoPedido;
             }
-            
+
             using (var oCn = Data.Conexao())
             {
-                
+
                 List<Pedido> Retorno = new List<Pedido>();
                 string SQL = $"select PP.Pedido_id, F.Nome as Fornecedor, P.NumPedido, P.DataPedido, P.Status_2, PP.Produto_id, PP.Quantidade, PP.Valor, Pro.Nome as Produto from Pedido as P join Fornecedor as F on P.Fornecedor_id = F.id join Pedido_has_Produto as PP on PP.Pedido_id = P.id join Produto as Pro on PP.Produto_id = Pro.id where P.id = {Codigo}";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
@@ -219,7 +219,7 @@ namespace Estoque.Classes
                     IdProduto2 = oPedido.IdProduto;
                     QTD2 = oPedido.QTD;
                     Produto2 = oPedido.Produto;
-                 }
+                }
                 oDr.Close();
                 return Retorno;
             }
@@ -265,13 +265,13 @@ namespace Estoque.Classes
             using (var oCn = Data.Conexao())
             {
                 var retorno = new List<Pedido>();
-                string sql = $"select PP.Pedido_id, F.Nome as Fornecedor, P.NumPedido, P.DataPedido, P.Status_2, PP.Produto_id, PP.Quantidade, PP.Valor, Pro.Nome as Produto from Pedido as P join Fornecedor as F on P.Fornecedor_id = F.id join Pedido_has_Produto as PP on PP.Pedido_id = P.id join Produto as Pro on PP.Produto_id = Pro.id where{tipoPesquisa} = @Codigo";
+                string sql = $"select PP.Pedido_id, F.Nome as Fornecedor, P.NumPedido, P.DataPedido, P.Status_2, PP.Produto_id, PP.Quantidade, PP.Valor, Pro.Nome as Produto from Pedido as P join Fornecedor as F on P.Fornecedor_id = F.id join Pedido_has_Produto as PP on PP.Pedido_id = P.id join Produto as Pro on PP.Produto_id = Pro.id where {tipoPesquisa} = @Codigo";
 
                 using (var comando = new SqlCommand(sql, oCn))
                 {
-                    
+
                     comando.Parameters.AddWithValue("@Codigo", codigo);
-                    
+
                     using (var oDr = comando.ExecuteReader())
                     {
 
@@ -280,15 +280,87 @@ namespace Estoque.Classes
                         {
                             var oPedido = new Pedido
                             {
-                               Id = oDr.GetInt32(oDr.GetOrdinal("Pedido_id")),
-                               Nome = oDr.GetString(oDr.GetOrdinal("Fornecedor")),
-                               NPedido = oDr.GetInt32(oDr.GetOrdinal("NumPedido")),
-                               Data2 = oDr.GetDateTime(oDr.GetOrdinal("DataPedido")),
-                               Status = oDr.GetString(oDr.GetOrdinal("Status_2")),
-                               IdProduto = oDr.GetInt32(oDr.GetOrdinal("Produto_id")),
-                               QTD = oDr.GetInt32(oDr.GetOrdinal("Quantidade")),
-                               Produto = oDr.GetString(oDr.GetOrdinal("Produto")),
-                               Valor = oDr.GetDouble(oDr.GetOrdinal("Valor"))
+                                Id = oDr.GetInt32(oDr.GetOrdinal("Pedido_id")),
+                                Nome = oDr.GetString(oDr.GetOrdinal("Fornecedor")),
+                                NPedido = oDr.GetInt32(oDr.GetOrdinal("NumPedido")),
+                                Data2 = oDr.GetDateTime(oDr.GetOrdinal("DataPedido")),
+                                Status = oDr.GetString(oDr.GetOrdinal("Status_2")),
+                                IdProduto = oDr.GetInt32(oDr.GetOrdinal("Produto_id")),
+                                QTD = oDr.GetInt32(oDr.GetOrdinal("Quantidade")),
+                                Produto = oDr.GetString(oDr.GetOrdinal("Produto")),
+                                Valor = oDr.GetDouble(oDr.GetOrdinal("Valor"))
+                            };
+                            retorno.Add(oPedido);
+                        }
+                    }
+                }
+                return retorno;
+            }
+        }
+
+        public static List<Pedido> Seleciona3(string tipoPesquisa, string codigo, int idpesquisa)
+        {
+            using (var oCn = Data.Conexao())
+            {
+                var retorno = new List<Pedido>();
+                string sql = $"select PP.Pedido_id, F.Nome as Fornecedor, P.NumPedido, P.DataPedido, P.Status_2, PP.Produto_id, PP.Quantidade, PP.Valor, Pro.Nome as Produto from Pedido as P join Fornecedor as F on P.Fornecedor_id = F.id join Pedido_has_Produto as PP on PP.Pedido_id = P.id join Produto as Pro on PP.Produto_id = Pro.id where {tipoPesquisa} = @Codigo And PP.Pedido_id = {idpesquisa}";
+
+                using (var comando = new SqlCommand(sql, oCn))
+                {
+
+                    comando.Parameters.AddWithValue("@Codigo", codigo);
+
+                    using (var oDr = comando.ExecuteReader())
+                    {
+
+
+                        while (oDr.Read())
+                        {
+                            var oPedido = new Pedido
+                            {
+                                Id = oDr.GetInt32(oDr.GetOrdinal("Pedido_id")),
+                                Nome = oDr.GetString(oDr.GetOrdinal("Fornecedor")),
+                                NPedido = oDr.GetInt32(oDr.GetOrdinal("NumPedido")),
+                                Data2 = oDr.GetDateTime(oDr.GetOrdinal("DataPedido")),
+                                Status = oDr.GetString(oDr.GetOrdinal("Status_2")),
+                                IdProduto = oDr.GetInt32(oDr.GetOrdinal("Produto_id")),
+                                QTD = oDr.GetInt32(oDr.GetOrdinal("Quantidade")),
+                                Produto = oDr.GetString(oDr.GetOrdinal("Produto")),
+                                Valor = oDr.GetDouble(oDr.GetOrdinal("Valor"))
+                            };
+                            retorno.Add(oPedido);
+                        }
+                    }
+                }
+                return retorno;
+            }
+        }
+        public static List<Pedido> Seleciona2(string tipoPesquisa, string codigo)
+        {
+            using (var oCn = Data.Conexao())
+            {
+                var retorno = new List<Pedido>();
+                string sql = $"select P.id as Pedido_id, NumPedido, DataPedido, Status_2, F.Nome as Fornecedor from Pedido as P join Fornecedor as F on P.Fornecedor_id = F.id where {tipoPesquisa} = @Codigo";
+
+                using (var comando = new SqlCommand(sql, oCn))
+                {
+
+                    comando.Parameters.AddWithValue("@Codigo", codigo);
+
+                    using (var oDr = comando.ExecuteReader())
+                    {
+
+
+                        while (oDr.Read())
+                        {
+                            var oPedido = new Pedido
+                            {
+                                Id = oDr.GetInt32(oDr.GetOrdinal("Pedido_id")),
+                                Nome = oDr.GetString(oDr.GetOrdinal("Fornecedor")),
+                                NPedido = oDr.GetInt32(oDr.GetOrdinal("NumPedido")),
+                                Data2 = oDr.GetDateTime(oDr.GetOrdinal("DataPedido")),
+                                Status = oDr.GetString(oDr.GetOrdinal("Status_2")),
+
                             };
                             retorno.Add(oPedido);
                         }
