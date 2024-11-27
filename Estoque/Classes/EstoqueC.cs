@@ -78,7 +78,7 @@ namespace Estoque.Classes
             using (var oCn = Data.Conexao())
             {
                 List<EstoqueC> Retorno = new List<EstoqueC>();
-                string SQL = "Select P.Nome, E.id, E.DataAdicao, E.Lote, E.Preco, E.QuantidadeAdicionada as QTD, E.Validade, PE.Produto_id as Pid, M.Nome as Marca, C.Nome as Categoria, P.CodigoBarra From Estoque as E join Produto_has_Estoque as PE on E.id = PE.Estoque_id  join Produto as P on PE.Produto_id = P.id join Categoria as C on C.id = P.id join Marca as M on M.id = P.id";
+                string SQL = "Select P.Nome, E.id, E.DataAdicao, E.Lote, E.Preco, E.QuantidadeAdicionada as QTD, E.Validade, PE.Produto_id as Pid, M.Nome as Marca, C.Nome as Categoria, P.CodigoBarra From Estoque as E join Produto_has_Estoque as PE on E.id = PE.Estoque_id  join Produto as P on PE.Produto_id = P.id join Categoria as C on C.id = P.Categoria_id join Marca as M on M.id = P.Marca_id";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
                 SqlDataReader oDr = comando.ExecuteReader();
                 while (oDr.Read())
@@ -177,7 +177,7 @@ namespace Estoque.Classes
             using (var oCn = Data.Conexao())
             {
                 var retorno = new List<EstoqueC>();
-                string sql = $"Select P.Nome, E.id, E.DataAdicao, E.Lote, E.Preco, E.QuantidadeAdicionada as QTD, E.Validade, PE.Produto_id as Pid, M.Nome as Marca, C.Nome as Categoria, P.CodigoBarra From Estoque as E join Produto_has_Estoque as PE on E.id = PE.Estoque_id  join Produto as P on PE.Produto_id = P.id join Categoria as C on C.id = P.id join Marca as M on M.id = P.id where {tipoPesquisa} = @Codigo";
+                string sql = $"Select P.Nome, E.id, E.DataAdicao, E.Lote, E.Preco, E.QuantidadeAdicionada as QTD, E.Validade, PE.Produto_id as Pid, M.Nome as Marca, C.Nome as Categoria, P.CodigoBarra From Estoque as E join Produto_has_Estoque as PE on E.id = PE.Estoque_id  join Produto as P on PE.Produto_id = P.id join Categoria as C on C.id = P.Categoria_id join Marca as M on M.id = P.Marca_id where {tipoPesquisa} = @Codigo";
 
                 using (var comando = new SqlCommand(sql, oCn))
                 {
