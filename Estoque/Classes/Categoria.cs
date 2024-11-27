@@ -60,6 +60,37 @@ namespace Estoque.Classes
                 return Retorno;
             }
         }
+        public static List<Categoria> Seleciona(string tipoPesquisa, string codigo)
+        {
+            using (var oCn = Data.Conexao()) // Obtém a conexão
+            {
+                var retorno = new List<Categoria>(); // Lista para armazenar as marcas retornadas
+                string sql = $"SELECT C.Id, C.Nome " +
+                             $"FROM Categoria AS C " +
+                             $"WHERE {tipoPesquisa} = @Codigo"; // Query com tipo de pesquisa dinâmico
+
+                using (var comando = new SqlCommand(sql, oCn))
+                {
+                    comando.Parameters.AddWithValue("@Codigo", codigo); // Substitui o parâmetro no SQL
+
+                    using (var oDr = comando.ExecuteReader()) // Executa a leitura dos dados
+                    {
+                        while (oDr.Read())
+                        {
+                            retorno.Add(new Categoria
+                            {
+                                Id = oDr.GetInt32(oDr.GetOrdinal("id")), // Obtém o ID
+                                Nome = oDr.GetString(oDr.GetOrdinal("Nome")) // Obtém o Nome
+                            });
+                        }
+                    }
+                }
+
+                return retorno; // Retorna a lista de marcas
+            }
+        }
+            
+
         public void Incluir()
         {
 

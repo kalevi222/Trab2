@@ -59,6 +59,36 @@ namespace Estoque.Classes
                 return Retorno;
             }
         }
+        public static List<Marca> Seleciona(string tipoPesquisa, string codigo)
+        {
+            using (var oCn = Data.Conexao()) // Obtém a conexão
+            {
+                var retorno = new List<Marca>(); // Lista para armazenar as marcas retornadas
+                string sql = $"SELECT M.Id, M.Nome " +
+                             $"FROM Marca AS M " +
+                             $"WHERE {tipoPesquisa} = @Codigo"; // Query com tipo de pesquisa dinâmico
+
+                using (var comando = new SqlCommand(sql, oCn))
+                {
+                    comando.Parameters.AddWithValue("@Codigo", codigo); // Substitui o parâmetro no SQL
+
+                    using (var oDr = comando.ExecuteReader()) // Executa a leitura dos dados
+                    {
+                        while (oDr.Read())
+                        {
+                            retorno.Add(new Marca
+                            {
+                                Id = oDr.GetInt32(oDr.GetOrdinal("id")), // Obtém o ID
+                                Nome = oDr.GetString(oDr.GetOrdinal("Nome")) // Obtém o Nome
+                            });
+                        }
+                    }
+                }
+
+                return retorno; // Retorna a lista de marcas
+            }
+        }
+
         public void Incluir()
         {
 
@@ -91,6 +121,19 @@ namespace Estoque.Classes
                 comando.ExecuteNonQuery();
             }
         }
+        private string ObterPesquisaTipo(ComboBox comboBox)
+        {
+            switch (comboBox.SelectedIndex)
+            {
+                case 0:
+                    return "ID";
+                case 1:
+                    return "Nome";
+                default:
+                    return string.Empty; // Valor padrão, caso necessário
+            }
+        }
+
 
     }
 }
