@@ -35,7 +35,6 @@
             gerirProdutosToolStripMenuItem = new ToolStripMenuItem();
             AddProduto = new ToolStripMenuItem();
             RegistroProduto = new ToolStripMenuItem();
-            verificarValidadeDeProdutosToolStripMenuItem = new ToolStripMenuItem();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             CadCategoria = new ToolStripMenuItem();
             CadFornecedor = new ToolStripMenuItem();
@@ -87,7 +86,7 @@
             // 
             // gerirProdutosToolStripMenuItem
             // 
-            gerirProdutosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AddProduto, RegistroProduto, verificarValidadeDeProdutosToolStripMenuItem });
+            gerirProdutosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AddProduto, RegistroProduto });
             gerirProdutosToolStripMenuItem.Name = "gerirProdutosToolStripMenuItem";
             gerirProdutosToolStripMenuItem.Size = new Size(61, 20);
             gerirProdutosToolStripMenuItem.Text = "Estoque";
@@ -96,22 +95,16 @@
             // 
             AddProduto.Enabled = false;
             AddProduto.Name = "AddProduto";
-            AddProduto.Size = new Size(230, 22);
+            AddProduto.Size = new Size(184, 22);
             AddProduto.Text = "Adcionar Produto";
             AddProduto.Click += adcionarbaixarProdutoToolStripMenuItem_Click;
             // 
             // RegistroProduto
             // 
             RegistroProduto.Name = "RegistroProduto";
-            RegistroProduto.Size = new Size(230, 22);
+            RegistroProduto.Size = new Size(184, 22);
             RegistroProduto.Text = "Registro de produtos";
             RegistroProduto.Click += gerirProdutosToolStripMenuItem1_Click;
-            // 
-            // verificarValidadeDeProdutosToolStripMenuItem
-            // 
-            verificarValidadeDeProdutosToolStripMenuItem.Name = "verificarValidadeDeProdutosToolStripMenuItem";
-            verificarValidadeDeProdutosToolStripMenuItem.Size = new Size(230, 22);
-            verificarValidadeDeProdutosToolStripMenuItem.Text = "Verificar Validade de produtos";
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -237,7 +230,6 @@
         private ToolStripMenuItem pedidosToolStripMenuItem;
         public ToolStripMenuItem RegistroProduto;
         public ToolStripMenuItem consultarPedidosToolStripMenuItem;
-        private ToolStripMenuItem verificarValidadeDeProdutosToolStripMenuItem;
         private ToolStripMenuItem AddProduto;
         private ToolStripMenuItem CadCategoria;
         private ToolStripMenuItem CadFornecedor;

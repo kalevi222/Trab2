@@ -105,10 +105,6 @@ namespace Estoque
         }
         private void gerirProdutosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGerir oFrm = new FrmGerir();
-            formGerir = oFrm;
-            oFrm.MdiParent = this;
-            oFrm.Show();
         }
 
         private void cadastrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,7 +143,6 @@ namespace Estoque
         private FrmConsultarPedido formConsultarPedidos;
         private FrmRegistroVenda formRegistroVenda;
         private FrmUsuario formUsuario;
-        private FrmGerir formGerir;
         private void FecharFormulario()
         {
 
@@ -190,10 +185,6 @@ namespace Estoque
             if (formUsuario != null && !formUsuario.IsDisposed)
             {
                 formUsuario.Close(); // Fechar o formulário
-            };
-            if (formGerir != null && !formGerir.IsDisposed)
-            {
-                formGerir.Close(); // Fechar o formulário
             };
 
         }
