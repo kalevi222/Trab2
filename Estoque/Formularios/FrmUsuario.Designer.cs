@@ -93,9 +93,9 @@
             CkbAddPro.AutoSize = true;
             CkbAddPro.Location = new Point(314, 72);
             CkbAddPro.Name = "CkbAddPro";
-            CkbAddPro.Size = new Size(181, 19);
+            CkbAddPro.Size = new Size(96, 19);
             CkbAddPro.TabIndex = 2;
-            CkbAddPro.Text = "Adcionar e remover produtos";
+            CkbAddPro.Text = "Gerir Estoque";
             CkbAddPro.UseVisualStyleBackColor = true;
             CkbAddPro.CheckedChanged += CkbAddPro_CheckedChanged;
             // 
@@ -113,7 +113,7 @@
             // CkbADM
             // 
             CkbADM.AutoSize = true;
-            CkbADM.Location = new Point(501, 97);
+            CkbADM.Location = new Point(470, 95);
             CkbADM.Name = "CkbADM";
             CkbADM.Size = new Size(53, 19);
             CkbADM.TabIndex = 4;
@@ -186,6 +186,7 @@
             // 
             // txtID
             // 
+            txtID.Enabled = false;
             txtID.Location = new Point(12, 21);
             txtID.MaxLength = 4;
             txtID.Name = "txtID";
@@ -215,7 +216,7 @@
             // CkbFornecedor
             // 
             CkbFornecedor.AutoSize = true;
-            CkbFornecedor.Location = new Point(501, 72);
+            CkbFornecedor.Location = new Point(470, 70);
             CkbFornecedor.Name = "CkbFornecedor";
             CkbFornecedor.Size = new Size(150, 19);
             CkbFornecedor.TabIndex = 16;

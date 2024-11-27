@@ -179,9 +179,15 @@ namespace Estoque
         }
 
         private bool ValidaControles()
-        {
+        { 
 
-            if (txtNome.Text.Trim() == "" && txtSenha.Text.Trim() == "")
+            if (txtNome.Text.Trim() == "")
+            {
+                MessageBox.Show("O campo nome e senha são obrigatorio.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNome.Focus();
+                return false;
+            };
+            if (txtSenha.Text.Trim() == "")
             {
                 MessageBox.Show("O campo nome e senha são obrigatorio.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNome.Focus();
