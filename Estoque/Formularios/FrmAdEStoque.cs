@@ -280,13 +280,16 @@ namespace Estoque.Formularios
         private void BtnRegistros_Click(object sender, EventArgs e)
         {
             FrmEstoqueConsulta oFrm = new FrmEstoqueConsulta();
-            oFrm.Show();
+            oFrm.StartPosition = FormStartPosition.CenterParent;
+            oFrm.ShowDialog(this);
         }
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
             FrmCadProdutos oFrm = new FrmCadProdutos();
-            oFrm.Show();
+            oFrm.StartPosition = FormStartPosition.CenterParent;
+            oFrm.ShowDialog(this);
+
         }
 
         private void CBProduto_SelectedIndexChanged(object sender, EventArgs e)
@@ -297,7 +300,8 @@ namespace Estoque.Formularios
         private void BtnPedidos_Click(object sender, EventArgs e)
         {
             FrmConsultarPedido oFrm = new FrmConsultarPedido();
-            oFrm.Show();
+            oFrm.StartPosition = FormStartPosition.CenterParent;
+            oFrm.ShowDialog(this);
         }
     }
 }

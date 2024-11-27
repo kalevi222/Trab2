@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             GrdVendas = new DataGridView();
+            Idvenda = new DataGridViewTextBoxColumn();
+            idProduto = new DataGridViewTextBoxColumn();
+            ProdutoVenda = new DataGridViewTextBoxColumn();
+            LoteVenda = new DataGridViewTextBoxColumn();
+            CodigoBarra = new DataGridViewTextBoxColumn();
+            QuantidadeVenda = new DataGridViewTextBoxColumn();
+            QuantidadeEmEstoque = new DataGridViewTextBoxColumn();
+            ValorUnitarioVenda = new DataGridViewTextBoxColumn();
+            ValorTotalVenda = new DataGridViewTextBoxColumn();
+            BtnRemover = new DataGridViewButtonColumn();
             CBProduto = new ComboBox();
             TxtId = new TextBox();
             TxtLote = new TextBox();
@@ -51,16 +61,7 @@
             TxtQuantidade = new TextBox();
             TxtTotalVenda = new TextBox();
             label9 = new Label();
-            Idvenda = new DataGridViewTextBoxColumn();
-            idProduto = new DataGridViewTextBoxColumn();
-            ProdutoVenda = new DataGridViewTextBoxColumn();
-            LoteVenda = new DataGridViewTextBoxColumn();
-            CodigoBarra = new DataGridViewTextBoxColumn();
-            QuantidadeVenda = new DataGridViewTextBoxColumn();
-            QuantidadeEmEstoque = new DataGridViewTextBoxColumn();
-            ValorUnitarioVenda = new DataGridViewTextBoxColumn();
-            ValorTotalVenda = new DataGridViewTextBoxColumn();
-            BtnRemover = new DataGridViewButtonColumn();
+            BtnRegistroVenda = new Button();
             ((System.ComponentModel.ISupportInitialize)GrdVendas).BeginInit();
             SuspendLayout();
             // 
@@ -74,6 +75,68 @@
             GrdVendas.TabIndex = 0;
             GrdVendas.CellClick += GrdVendas_CellClick;
             GrdVendas.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // Idvenda
+            // 
+            Idvenda.DataPropertyName = "Id";
+            Idvenda.HeaderText = "Id Venda";
+            Idvenda.Name = "Idvenda";
+            Idvenda.Width = 60;
+            // 
+            // idProduto
+            // 
+            idProduto.HeaderText = "Id do produto";
+            idProduto.Name = "idProduto";
+            idProduto.Width = 60;
+            // 
+            // ProdutoVenda
+            // 
+            ProdutoVenda.DataPropertyName = "Produto";
+            ProdutoVenda.HeaderText = "Produto";
+            ProdutoVenda.Name = "ProdutoVenda";
+            ProdutoVenda.Width = 158;
+            // 
+            // LoteVenda
+            // 
+            LoteVenda.HeaderText = "Lote";
+            LoteVenda.Name = "LoteVenda";
+            LoteVenda.Width = 80;
+            // 
+            // CodigoBarra
+            // 
+            CodigoBarra.DataPropertyName = "Lote";
+            CodigoBarra.HeaderText = "Codigo de Barras";
+            CodigoBarra.Name = "CodigoBarra";
+            CodigoBarra.Width = 150;
+            // 
+            // QuantidadeVenda
+            // 
+            QuantidadeVenda.DataPropertyName = "Quantidade";
+            QuantidadeVenda.HeaderText = "Quantidade a vender";
+            QuantidadeVenda.Name = "QuantidadeVenda";
+            QuantidadeVenda.Width = 75;
+            // 
+            // QuantidadeEmEstoque
+            // 
+            QuantidadeEmEstoque.HeaderText = "Quantia em estoque";
+            QuantidadeEmEstoque.Name = "QuantidadeEmEstoque";
+            // 
+            // ValorUnitarioVenda
+            // 
+            ValorUnitarioVenda.DataPropertyName = "ValorUnitario";
+            ValorUnitarioVenda.HeaderText = "Valor Unitario";
+            ValorUnitarioVenda.Name = "ValorUnitarioVenda";
+            // 
+            // ValorTotalVenda
+            // 
+            ValorTotalVenda.DataPropertyName = "ValorTotal";
+            ValorTotalVenda.HeaderText = "Valor Total";
+            ValorTotalVenda.Name = "ValorTotalVenda";
+            // 
+            // BtnRemover
+            // 
+            BtnRemover.HeaderText = "Remover";
+            BtnRemover.Name = "BtnRemover";
             // 
             // CBProduto
             // 
@@ -217,7 +280,7 @@
             // 
             // BtnVenda
             // 
-            BtnVenda.Location = new Point(1079, 98);
+            BtnVenda.Location = new Point(1079, 12);
             BtnVenda.Name = "BtnVenda";
             BtnVenda.Size = new Size(177, 54);
             BtnVenda.TabIndex = 18;
@@ -227,7 +290,7 @@
             // 
             // BtnRegistro
             // 
-            BtnRegistro.Location = new Point(1079, 12);
+            BtnRegistro.Location = new Point(1079, 177);
             BtnRegistro.Name = "BtnRegistro";
             BtnRegistro.Size = new Size(177, 54);
             BtnRegistro.TabIndex = 19;
@@ -270,73 +333,22 @@
             label9.TabIndex = 23;
             label9.Text = "Valor Total da Venda";
             // 
-            // Idvenda
+            // BtnRegistroVenda
             // 
-            Idvenda.DataPropertyName = "Id";
-            Idvenda.HeaderText = "Id Venda";
-            Idvenda.Name = "Idvenda";
-            Idvenda.Width = 60;
-            // 
-            // idProduto
-            // 
-            idProduto.HeaderText = "Id do produto";
-            idProduto.Name = "idProduto";
-            idProduto.Width = 60;
-            // 
-            // ProdutoVenda
-            // 
-            ProdutoVenda.DataPropertyName = "Produto";
-            ProdutoVenda.HeaderText = "Produto";
-            ProdutoVenda.Name = "ProdutoVenda";
-            ProdutoVenda.Width = 158;
-            // 
-            // LoteVenda
-            // 
-            LoteVenda.HeaderText = "Lote";
-            LoteVenda.Name = "LoteVenda";
-            LoteVenda.Width = 80;
-            // 
-            // CodigoBarra
-            // 
-            CodigoBarra.DataPropertyName = "Lote";
-            CodigoBarra.HeaderText = "Codigo de Barras";
-            CodigoBarra.Name = "CodigoBarra";
-            CodigoBarra.Width = 150;
-            // 
-            // QuantidadeVenda
-            // 
-            QuantidadeVenda.DataPropertyName = "Quantidade";
-            QuantidadeVenda.HeaderText = "Quantidade a vender";
-            QuantidadeVenda.Name = "QuantidadeVenda";
-            QuantidadeVenda.Width = 75;
-            // 
-            // QuantidadeEmEstoque
-            // 
-            QuantidadeEmEstoque.HeaderText = "Quantia em estoque";
-            QuantidadeEmEstoque.Name = "QuantidadeEmEstoque";
-            // 
-            // ValorUnitarioVenda
-            // 
-            ValorUnitarioVenda.DataPropertyName = "ValorUnitario";
-            ValorUnitarioVenda.HeaderText = "Valor Unitario";
-            ValorUnitarioVenda.Name = "ValorUnitarioVenda";
-            // 
-            // ValorTotalVenda
-            // 
-            ValorTotalVenda.DataPropertyName = "ValorTotal";
-            ValorTotalVenda.HeaderText = "Valor Total";
-            ValorTotalVenda.Name = "ValorTotalVenda";
-            // 
-            // BtnRemover
-            // 
-            BtnRemover.HeaderText = "Remover";
-            BtnRemover.Name = "BtnRemover";
+            BtnRegistroVenda.Location = new Point(1079, 98);
+            BtnRegistroVenda.Name = "BtnRegistroVenda";
+            BtnRegistroVenda.Size = new Size(177, 54);
+            BtnRegistroVenda.TabIndex = 24;
+            BtnRegistroVenda.Text = "Registro de vendas";
+            BtnRegistroVenda.UseVisualStyleBackColor = true;
+            BtnRegistroVenda.Click += BtnRegistroVenda_Click;
             // 
             // FrmGuiaVendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1268, 569);
+            Controls.Add(BtnRegistroVenda);
             Controls.Add(label9);
             Controls.Add(TxtTotalVenda);
             Controls.Add(TxtQuantidade);
@@ -404,5 +416,6 @@
         private DataGridViewTextBoxColumn ValorUnitarioVenda;
         private DataGridViewTextBoxColumn ValorTotalVenda;
         private DataGridViewButtonColumn BtnRemover;
+        private Button BtnRegistroVenda;
     }
 }

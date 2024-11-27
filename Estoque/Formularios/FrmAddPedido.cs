@@ -24,7 +24,7 @@ namespace Estoque.Formularios
         public FrmAddPedido()
         {
             InitializeComponent();
-            
+
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,6 +44,12 @@ namespace Estoque.Formularios
             CarregarCB();
             CarregaGrid();
             CarregarProdutos();
+
+            if (Login.CadFor2 == false)
+            {
+                BtnFornecedor.Enabled = false;
+            }
+
         }
 
         private void CarregarProdutos()
@@ -114,40 +120,15 @@ namespace Estoque.Formularios
 
         private bool ValidaControles()
         {
-            //int codigo;
-            //double valor;
-            //DateTime DataAtual = DateTime.Now;
+            int codigo;
 
-            //if (int.TryParse(TxtLote.Text, out codigo) && double.TryParse(TxtPreco.Text, out valor) && int.TryParse(TxtQtd.Text, out codigo)
-            //    && DTValidade.Value.Date > DataAtual.Date && DTFabricacao.Value.Date <= DataAtual.Date)
-            //{
-            //    return true;
-            //}
-            //else if (int.TryParse(TxtLote.Text, out codigo) != true)
-            //{
-            //    MessageBox.Show("O campo lote não é numerico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            //else if (double.TryParse(TxtPreco.Text, out valor) != true)
-            //{
-            //    MessageBox.Show("O campo preço não é numerico ou esta incorreto.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            //else if (int.TryParse(TxtQtd.Text, out codigo) != true)
-            //{
-            //    MessageBox.Show("O campo Quantidade não é numerico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            //else if (DTValidade.Value.Date <= DataAtual.Date)
-            //{
-            //    MessageBox.Show("O campo validade não pode ser aceito por ser anterior ou iqual ao dia de hoje.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            //else if (DTFabricacao.Value.Date > DataAtual.Date)
-            //{
-            //    MessageBox.Show("O campo data de fabricação não pode ser aceito por ser posterior ao dia de hoje.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
+            
+            if (int.TryParse(TxtNPedido.Text, out codigo) != true)
+            {
+               MessageBox.Show("O campo Numero de pedido não é numerico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+               return false;
+            }
+           
             return true;
         }
 
@@ -232,7 +213,7 @@ namespace Estoque.Formularios
 
         public void BtnFechar_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
         }
 
@@ -269,17 +250,17 @@ namespace Estoque.Formularios
                 }
                 else if (GrdItens.Columns[e.ColumnIndex].Name == "AlterarPedidoProduto")
                 {
-                   
-                        TxtID.Text = ObjSelecionado.Id.ToString();
-                        TxtNPedido.Text = ObjSelecionado.NPedido.ToString();
-                        DTPedido.Value = ObjSelecionado.Data2.ToLocalTime();
-                        TxtID.Enabled = false;
-                        TxtID.Focus();
-                        incluir = false;
-                        CodigoPedido = int.Parse(TxtID.Text);
-                        FrmAlterarPedido oFrm = new FrmAlterarPedido();
-                        oFrm.Show();
-          
+
+                    TxtID.Text = ObjSelecionado.Id.ToString();
+                    TxtNPedido.Text = ObjSelecionado.NPedido.ToString();
+                    DTPedido.Value = ObjSelecionado.Data2.ToLocalTime();
+                    TxtID.Enabled = false;
+                    TxtID.Focus();
+                    incluir = false;
+                    CodigoPedido = int.Parse(TxtID.Text);
+                    FrmAlterarPedido oFrm = new FrmAlterarPedido();
+                    oFrm.Show();
+
                 }
             }
         }
@@ -300,6 +281,14 @@ namespace Estoque.Formularios
             {
                 StatusPedido = "Completo";
             }
+        }
+
+        private void BtnFornecedor_Click(object sender, EventArgs e)
+        {
+                FrmFornecedor oFrm = new FrmFornecedor();
+                oFrm.StartPosition = FormStartPosition.CenterParent;
+                oFrm.ShowDialog(this);
+            
         }
     }
 }

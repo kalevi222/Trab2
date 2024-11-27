@@ -48,6 +48,12 @@
             FornecedorCNPJ = new DataGridViewTextBoxColumn();
             AlterarFornecedor = new DataGridViewButtonColumn();
             ExcluirFornecedor = new DataGridViewButtonColumn();
+            BtnLimpar = new Button();
+            TxtPesquisa = new TextBox();
+            label6 = new Label();
+            CBPesquisa = new ComboBox();
+            BtnPesquisar = new Button();
+            BtnFornecedor = new Button();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
@@ -161,9 +167,9 @@
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrdItens.Columns.AddRange(new DataGridViewColumn[] { FornecedorID, FornecedorNome, FornecedorContato, FornecedorEndereco, FornecedorCNPJ, AlterarFornecedor, ExcluirFornecedor });
-            GrdItens.Location = new Point(12, 154);
+            GrdItens.Location = new Point(12, 254);
             GrdItens.Name = "GrdItens";
-            GrdItens.Size = new Size(776, 284);
+            GrdItens.Size = new Size(776, 383);
             GrdItens.TabIndex = 12;
             GrdItens.CellClick += GrdItens_CellClick;
             // 
@@ -210,11 +216,75 @@
             ExcluirFornecedor.HeaderText = "Excluir";
             ExcluirFornecedor.Name = "ExcluirFornecedor";
             // 
+            // BtnLimpar
+            // 
+            BtnLimpar.Location = new Point(400, 193);
+            BtnLimpar.Name = "BtnLimpar";
+            BtnLimpar.Size = new Size(127, 55);
+            BtnLimpar.TabIndex = 34;
+            BtnLimpar.Text = "Limpar";
+            BtnLimpar.UseVisualStyleBackColor = true;
+            BtnLimpar.Click += BtnLimpar_Click;
+            // 
+            // TxtPesquisa
+            // 
+            TxtPesquisa.Location = new Point(267, 164);
+            TxtPesquisa.Name = "TxtPesquisa";
+            TxtPesquisa.Size = new Size(260, 23);
+            TxtPesquisa.TabIndex = 33;
+            TxtPesquisa.Text = "Valor de pesquisa";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(380, 99);
+            label6.Name = "label6";
+            label6.Size = new Size(57, 15);
+            label6.TabIndex = 32;
+            label6.Text = "Pesquisar";
+            // 
+            // CBPesquisa
+            // 
+            CBPesquisa.FormattingEnabled = true;
+            CBPesquisa.Items.AddRange(new object[] { "ID", "Fornecedor", "CNPJ" });
+            CBPesquisa.Location = new Point(267, 117);
+            CBPesquisa.Name = "CBPesquisa";
+            CBPesquisa.Size = new Size(260, 23);
+            CBPesquisa.TabIndex = 31;
+            CBPesquisa.Text = "Tipo de pesquisa";
+            CBPesquisa.SelectedIndexChanged += CBPesquisa_SelectedIndexChanged;
+            // 
+            // BtnPesquisar
+            // 
+            BtnPesquisar.Location = new Point(267, 193);
+            BtnPesquisar.Name = "BtnPesquisar";
+            BtnPesquisar.Size = new Size(127, 55);
+            BtnPesquisar.TabIndex = 30;
+            BtnPesquisar.Text = "pesquisar";
+            BtnPesquisar.UseVisualStyleBackColor = true;
+            BtnPesquisar.Click += BtnPesquisar_Click;
+            // 
+            // BtnFornecedor
+            // 
+            BtnFornecedor.Location = new Point(12, 196);
+            BtnFornecedor.Name = "BtnFornecedor";
+            BtnFornecedor.Size = new Size(147, 49);
+            BtnFornecedor.TabIndex = 35;
+            BtnFornecedor.Text = "Fornecedor";
+            BtnFornecedor.UseVisualStyleBackColor = true;
+            BtnFornecedor.Click += BtnFornecedor_Click;
+            // 
             // FrmFornecedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 549);
+            Controls.Add(BtnFornecedor);
+            Controls.Add(BtnLimpar);
+            Controls.Add(TxtPesquisa);
+            Controls.Add(label6);
+            Controls.Add(CBPesquisa);
+            Controls.Add(BtnPesquisar);
             Controls.Add(GrdItens);
             Controls.Add(BtnFehcar);
             Controls.Add(BtnSalvar);
@@ -258,5 +328,11 @@
         private DataGridViewTextBoxColumn FornecedorCNPJ;
         private DataGridViewButtonColumn AlterarFornecedor;
         private DataGridViewButtonColumn ExcluirFornecedor;
+        private Button BtnLimpar;
+        private TextBox TxtPesquisa;
+        private Label label6;
+        private ComboBox CBPesquisa;
+        private Button BtnPesquisar;
+        private Button BtnFornecedor;
     }
 }

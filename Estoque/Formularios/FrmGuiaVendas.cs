@@ -54,7 +54,7 @@ namespace Estoque.Formularios
         {
             int Verifica;
 
-            Verifica =  int.Parse(TxtEstoque.Text) - int.Parse(TxtQuantidade.Text);
+            Verifica = int.Parse(TxtEstoque.Text) - int.Parse(TxtQuantidade.Text);
 
             if (Verifica >= 0)
             {
@@ -100,7 +100,7 @@ namespace Estoque.Formularios
                 MessageBox.Show("Quantidade a vender é maior que tem em estoque!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-           
+
         }
 
         private void CarregarCB()
@@ -301,7 +301,16 @@ namespace Estoque.Formularios
         private void BtnRegistro_Click(object sender, EventArgs e)
         {
             FrmEstoqueConsulta oFrm = new FrmEstoqueConsulta();
-            oFrm.Show();
+            oFrm.StartPosition = FormStartPosition.CenterParent;
+            oFrm.ShowDialog(this);
+        }
+
+        private void BtnRegistroVenda_Click(object sender, EventArgs e)
+        {
+            FrmRegistroVenda oFrm = new FrmRegistroVenda();
+            oFrm.StartPosition = FormStartPosition.CenterParent;
+            oFrm.ShowDialog(this);
+
         }
     }
 }

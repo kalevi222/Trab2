@@ -51,6 +51,7 @@
             AlterarPedido = new DataGridViewButtonColumn();
             AlterarPedidoProduto = new DataGridViewButtonColumn();
             ExcluirPedido = new DataGridViewButtonColumn();
+            BtnFornecedor = new Button();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
@@ -232,11 +233,22 @@
             ExcluirPedido.HeaderText = "Excluir";
             ExcluirPedido.Name = "ExcluirPedido";
             // 
+            // BtnFornecedor
+            // 
+            BtnFornecedor.Location = new Point(392, 75);
+            BtnFornecedor.Name = "BtnFornecedor";
+            BtnFornecedor.Size = new Size(134, 51);
+            BtnFornecedor.TabIndex = 21;
+            BtnFornecedor.Text = "Cadastrar Fornecedor";
+            BtnFornecedor.UseVisualStyleBackColor = true;
+            BtnFornecedor.Click += BtnFornecedor_Click;
+            // 
             // FrmAddPedido
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1104, 494);
+            Controls.Add(BtnFornecedor);
             Controls.Add(GrdItens);
             Controls.Add(BtnFechar);
             Controls.Add(label6);
@@ -285,5 +297,6 @@
         private DataGridViewButtonColumn AlterarPedidoProduto;
         private DataGridViewButtonColumn ExcluirPedido;
         public Button BtnFechar;
+        private Button BtnFornecedor;
     }
 }

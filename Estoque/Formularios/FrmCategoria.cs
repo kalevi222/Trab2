@@ -13,6 +13,7 @@ namespace Estoque.Formularios
 {
     public partial class FrmCategoria : Form
     {
+        public string PesquisaTipo;
         private bool incluir = true;
         public FrmCategoria()
         {
@@ -147,6 +148,42 @@ namespace Estoque.Formularios
         }
 
         private void FrmCategoria_Load(object sender, EventArgs e)
+        {
+            CarregaGrid();
+        }
+
+        private void CBPesquisa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            {
+                if (CBPesquisa.SelectedIndex == 0)
+                {
+                    PesquisaTipo = "C.Id";
+                }
+                else if (CBPesquisa.SelectedIndex == 1)
+                {
+                    PesquisaTipo = "C.Nome";
+                }
+
+            }
+        }
+
+        private void BtnPesquisar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtém os dados de acordo com o tipo de pesquisa e o texto informado
+                var categoria = Categoria.Seleciona(PesquisaTipo, TxtPesquisa.Text);
+                GrdItens.DataSource = null; // Limpa qualquer fonte anterior
+                GrdItens.DataSource = categoria; // Vincula a lista ao DataGridView
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar marcas: {ex.Message}");
+            }
+
+        }
+
+        private void BtnLimpar_Click(object sender, EventArgs e)
         {
             CarregaGrid();
         }

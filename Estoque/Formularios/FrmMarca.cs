@@ -11,8 +11,11 @@ using System.Windows.Forms;
 
 namespace Estoque.Formularios
 {
+
+
     public partial class FrmMarca : Form
     {
+        public string PesquisaTipo;
         private bool incluir = true;
         public FrmMarca()
         {
@@ -144,5 +147,41 @@ namespace Estoque.Formularios
         {
 
         }
+
+        private void CBPesquisa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            {
+                if (CBPesquisa.SelectedIndex == 0)
+                {
+                    PesquisaTipo = "M.Id";
+                }
+                else if (CBPesquisa.SelectedIndex == 1)
+                {
+                    PesquisaTipo = "M.Nome";
+                }
+
+            }
+        }
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtém os dados de acordo com o tipo de pesquisa e o texto informado
+                var marcas = Marca.Seleciona(PesquisaTipo, TxtPesquisa.Text);
+                GrdItens.DataSource = null; // Limpa qualquer fonte anterior
+                GrdItens.DataSource = marcas; // Vincula a lista ao DataGridView
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar marcas: {ex.Message}");
+            }
+        }
+
+        private void BtnLimpar_Click(object sender, EventArgs e)
+        {
+            CarregaGrid();
+        }
     }
 }
+

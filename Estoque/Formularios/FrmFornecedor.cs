@@ -13,6 +13,7 @@ namespace Estoque.Formularios
 {
     public partial class FrmFornecedor : Form
     {
+        public string tipoPesquisa;
         private bool incluir = true;
         public FrmFornecedor()
         {
@@ -35,6 +36,11 @@ namespace Estoque.Formularios
         private void FrmFornecedor_Load(object sender, EventArgs e)
         {
             CarregaGrid();
+
+            if (Login.CadFor2 == true)
+            {
+                BtnFornecedor.Enabled = false;
+            }
         }
 
         private bool ValidaControles()
@@ -151,5 +157,51 @@ namespace Estoque.Formularios
                 }
             }
         }
+        private void CBPesquisa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            {
+                if (CBPesquisa.SelectedIndex == 0)
+                {
+                    tipoPesquisa = "Id";
+                }
+                else if (CBPesquisa.SelectedIndex == 1)
+                {
+                    tipoPesquisa = "Nome";
+                }
+                else if (CBPesquisa.SelectedIndex == 2)
+                {
+                    tipoPesquisa = "CNPJ";
+                }
+
+            }
+        }
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtém os dados de acordo com o tipo de pesquisa e o texto informado
+                var fornecedors = Fornecedor.Seleciona(tipoPesquisa, TxtPesquisa.Text);
+                GrdItens.DataSource = null; // Limpa qualquer fonte anterior
+                GrdItens.DataSource = fornecedors; // Vincula a lista ao DataGridView
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar Fornecedor: {ex.Message}");
+            }
+
+        }
+
+        private void BtnLimpar_Click(object sender, EventArgs e)
+        {
+            CarregaGrid();
+        }
+
+        private void BtnFornecedor_Click(object sender, EventArgs e)
+        {
+            FrmFornecedor oFrm = new FrmFornecedor();
+            oFrm.StartPosition = FormStartPosition.CenterParent;
+            oFrm.ShowDialog(this);
+        }
     }
 }
+

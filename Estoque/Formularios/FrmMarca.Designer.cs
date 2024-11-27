@@ -39,6 +39,11 @@
             NomeMarca = new DataGridViewTextBoxColumn();
             AlterarMarca = new DataGridViewButtonColumn();
             ExcluirMarca = new DataGridViewButtonColumn();
+            BtnLimpar = new Button();
+            TxtPesquisa = new TextBox();
+            label4 = new Label();
+            CBPesquisa = new ComboBox();
+            BtnPesquisar = new Button();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +59,7 @@
             // 
             // BtnFechar
             // 
-            BtnFechar.Location = new Point(655, 63);
+            BtnFechar.Location = new Point(177, 63);
             BtnFechar.Name = "BtnFechar";
             BtnFechar.Size = new Size(133, 52);
             BtnFechar.TabIndex = 1;
@@ -74,7 +79,7 @@
             // 
             TxtNome.Location = new Point(118, 34);
             TxtNome.Name = "TxtNome";
-            TxtNome.Size = new Size(670, 23);
+            TxtNome.Size = new Size(361, 23);
             TxtNome.TabIndex = 3;
             // 
             // label1
@@ -100,9 +105,9 @@
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrdItens.Columns.AddRange(new DataGridViewColumn[] { IdMarca, NomeMarca, AlterarMarca, ExcluirMarca });
-            GrdItens.Location = new Point(12, 121);
+            GrdItens.Location = new Point(12, 162);
             GrdItens.Name = "GrdItens";
-            GrdItens.Size = new Size(776, 317);
+            GrdItens.Size = new Size(786, 317);
             GrdItens.TabIndex = 6;
             GrdItens.CellClick += GrdItens_CellClick;
             GrdItens.CellContentClick += GrdItens_CellContentClick;
@@ -130,11 +135,64 @@
             ExcluirMarca.HeaderText = "Excluir";
             ExcluirMarca.Name = "ExcluirMarca";
             // 
+            // BtnLimpar
+            // 
+            BtnLimpar.Location = new Point(651, 101);
+            BtnLimpar.Name = "BtnLimpar";
+            BtnLimpar.Size = new Size(127, 55);
+            BtnLimpar.TabIndex = 24;
+            BtnLimpar.Text = "Limpar";
+            BtnLimpar.UseVisualStyleBackColor = true;
+            BtnLimpar.Click += BtnLimpar_Click;
+            // 
+            // TxtPesquisa
+            // 
+            TxtPesquisa.Location = new Point(518, 72);
+            TxtPesquisa.Name = "TxtPesquisa";
+            TxtPesquisa.Size = new Size(260, 23);
+            TxtPesquisa.TabIndex = 23;
+            TxtPesquisa.Text = "Valor de pesquisa";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(631, 7);
+            label4.Name = "label4";
+            label4.Size = new Size(57, 15);
+            label4.TabIndex = 22;
+            label4.Text = "Pesquisar";
+            // 
+            // CBPesquisa
+            // 
+            CBPesquisa.FormattingEnabled = true;
+            CBPesquisa.Items.AddRange(new object[] { "ID", "Marca" });
+            CBPesquisa.Location = new Point(518, 25);
+            CBPesquisa.Name = "CBPesquisa";
+            CBPesquisa.Size = new Size(260, 23);
+            CBPesquisa.TabIndex = 21;
+            CBPesquisa.Text = "Tipo de pesquisa";
+            CBPesquisa.SelectedIndexChanged += CBPesquisa_SelectedIndexChanged;
+            // 
+            // BtnPesquisar
+            // 
+            BtnPesquisar.Location = new Point(518, 101);
+            BtnPesquisar.Name = "BtnPesquisar";
+            BtnPesquisar.Size = new Size(127, 55);
+            BtnPesquisar.TabIndex = 20;
+            BtnPesquisar.Text = "pesquisar";
+            BtnPesquisar.UseVisualStyleBackColor = true;
+            BtnPesquisar.Click += BtnPesquisar_Click;
+            // 
             // FrmMarca
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(BtnLimpar);
+            Controls.Add(TxtPesquisa);
+            Controls.Add(label4);
+            Controls.Add(CBPesquisa);
+            Controls.Add(BtnPesquisar);
             Controls.Add(GrdItens);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -163,5 +221,10 @@
         private DataGridViewTextBoxColumn NomeMarca;
         private DataGridViewButtonColumn AlterarMarca;
         private DataGridViewButtonColumn ExcluirMarca;
+        private Button BtnLimpar;
+        private TextBox TxtPesquisa;
+        private Label label4;
+        private ComboBox CBPesquisa;
+        private Button BtnPesquisar;
     }
 }
