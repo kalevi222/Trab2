@@ -110,5 +110,19 @@ namespace Estoque.Formularios
         {
             this.Close();
         }
+
+        private void BtnLimpar_Click(object sender, EventArgs e)
+        {
+            CarregaGrid();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmAdEstoque.Data4 = DTPesquisa2.Value;
+
+            var oEstoque = EstoqueC.Seleciona2("E.Validade", TxtPesquisa.Text); // Chamando o método estático
+            GrdItens.DataSource = null; // Limpa qualquer fonte anterior
+            GrdItens.DataSource = oEstoque; // Vincula a lista ao DataGridView
+        }
     }
 }

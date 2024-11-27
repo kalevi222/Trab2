@@ -132,3 +132,4 @@ E:\trabalho\trab2\Estoque\obj\Debug\net8.0-windows\Estoque.genruntimeconfig.cach
 E:\trabalho\trab2\Estoque\obj\Debug\net8.0-windows\ref\Estoque.dll
 C:\Users\Kalevi\Desktop\trab2\Estoque\obj\Debug\net8.0-windows\Estoque.Formularios.FrmGuiaVendas.resources
 C:\Users\Kalevi\Desktop\trab2\Estoque\obj\Debug\net8.0-windows\Estoque.Formularios.FrmSelecionaProduto.resources
+C:\Users\Kalevi\Desktop\trab2\Estoque\obj\Debug\net8.0-windows\Estoque.Formularios.FrmRegistroVenda.resources

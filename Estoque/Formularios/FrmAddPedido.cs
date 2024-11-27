@@ -18,11 +18,13 @@ namespace Estoque.Formularios
         private string valor;
         private bool incluir = true;
         private string StatusPedido;
+        private Form _form1;
 
         public static int CodigoPedido;
         public FrmAddPedido()
         {
             InitializeComponent();
+            
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -228,8 +230,9 @@ namespace Estoque.Formularios
 
         }
 
-        private void BtnFechar_Click(object sender, EventArgs e)
+        public void BtnFechar_Click(object sender, EventArgs e)
         {
+            
             this.Close();
         }
 

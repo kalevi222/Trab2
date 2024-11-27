@@ -22,6 +22,7 @@ namespace Estoque
         private int ADM;
         private int RegVenda;
         private int RegPedido;
+        public string PesquisaTipo;
 
         private bool incluir = true;
         public FrmUsuario()
@@ -251,6 +252,13 @@ namespace Estoque
 
                 if (GrdItem.Columns[e.ColumnIndex].Name == "AlterarUsuarios")
                 {
+                    CkbAddPro.Checked = false;
+                    CkbCadCat.Checked = false;
+                    CkbCadUsuario.Checked = false;
+                    CkbFornecedor.Checked = false;
+                    ckbCadPro.Checked = false;
+                    ckbMarcas.Checked = false;
+                    CkbAddPedidos.Checked = false;
                     txtID.Text = ObjSelecionado.Id.ToString();
                     txtNome.Text = ObjSelecionado.Nome;
                     txtID.Enabled = false;
@@ -268,6 +276,36 @@ namespace Estoque
             }
         }
 
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var produtos = Usuarios.Seleciona(PesquisaTipo, TxtPesquisa.Text); // Chamando o método estático
+                GrdItem.DataSource = null; // Limpa qualquer fonte anterior
+                GrdItem.DataSource = produtos; // Vincula a lista ao DataGridView
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar produtos: {ex.Message}");
+            }
+        }
 
+        private void BtnLimpar_Click(object sender, EventArgs e)
+        {
+            CarregaGrid();
+            TxtPesquisa.Text = "";
+        }
+
+        private void CBPesquisa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CBPesquisa.SelectedIndex == 0)
+            {
+                PesquisaTipo = "ID";
+            }
+            else if (CBPesquisa.SelectedIndex == 1)
+            {
+                PesquisaTipo = "Nome";
+            }
+        }
     }
 }

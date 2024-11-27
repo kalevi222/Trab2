@@ -275,7 +275,6 @@
         private Label label3;
         private Label label5;
         private Label label6;
-        private Button BtnFechar;
         private DataGridView GrdItens;
         private DataGridViewTextBoxColumn IdPedido;
         private DataGridViewTextBoxColumn FornecedorPedido;
@@ -285,5 +284,6 @@
         private DataGridViewButtonColumn AlterarPedido;
         private DataGridViewButtonColumn AlterarPedidoProduto;
         private DataGridViewButtonColumn ExcluirPedido;
+        public Button BtnFechar;
     }
 }

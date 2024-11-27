@@ -47,6 +47,10 @@
             label1 = new Label();
             label2 = new Label();
             BtnFechar = new Button();
+            BtnLimpar = new Button();
+            DTPesquisa2 = new DateTimePicker();
+            button1 = new Button();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
@@ -157,9 +161,9 @@
             // 
             // BtnPesquisar
             // 
-            BtnPesquisar.Location = new Point(515, 25);
+            BtnPesquisar.Location = new Point(32, 68);
             BtnPesquisar.Name = "BtnPesquisar";
-            BtnPesquisar.Size = new Size(164, 52);
+            BtnPesquisar.Size = new Size(103, 31);
             BtnPesquisar.TabIndex = 4;
             BtnPesquisar.Text = "Pesquisar";
             BtnPesquisar.UseVisualStyleBackColor = true;
@@ -193,11 +197,52 @@
             BtnFechar.UseVisualStyleBackColor = true;
             BtnFechar.Click += BtnFechar_Click;
             // 
+            // BtnLimpar
+            // 
+            BtnLimpar.Location = new Point(519, 25);
+            BtnLimpar.Name = "BtnLimpar";
+            BtnLimpar.Size = new Size(149, 52);
+            BtnLimpar.TabIndex = 27;
+            BtnLimpar.Text = "Limpar";
+            BtnLimpar.UseVisualStyleBackColor = true;
+            BtnLimpar.Click += BtnLimpar_Click;
+            // 
+            // DTPesquisa2
+            // 
+            DTPesquisa2.Format = DateTimePickerFormat.Short;
+            DTPesquisa2.Location = new Point(731, 25);
+            DTPesquisa2.Name = "DTPesquisa2";
+            DTPesquisa2.Size = new Size(196, 23);
+            DTPesquisa2.TabIndex = 28;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(759, 54);
+            button1.Name = "button1";
+            button1.Size = new Size(143, 39);
+            button1.TabIndex = 29;
+            button1.Text = "Pesquisar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(731, 7);
+            label3.Name = "label3";
+            label3.Size = new Size(196, 15);
+            label3.TabIndex = 30;
+            label3.Text = "Procurar produtos com Validade até";
+            // 
             // FrmEstoqueConsulta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1192, 547);
+            Controls.Add(label3);
+            Controls.Add(button1);
+            Controls.Add(DTPesquisa2);
+            Controls.Add(BtnLimpar);
             Controls.Add(BtnFechar);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -235,5 +280,9 @@
         private Label label1;
         private Label label2;
         private Button BtnFechar;
+        private Button BtnLimpar;
+        private DateTimePicker DTPesquisa2;
+        private Button button1;
+        private Label label3;
     }
 }

@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             GrdVendas = new DataGridView();
-            Idvenda = new DataGridViewTextBoxColumn();
-            idProduto = new DataGridViewTextBoxColumn();
-            ProdutoVenda = new DataGridViewTextBoxColumn();
-            CodigoBarra = new DataGridViewTextBoxColumn();
-            QuantidadeVenda = new DataGridViewTextBoxColumn();
-            ValorUnitarioVenda = new DataGridViewTextBoxColumn();
-            ValorTotalVenda = new DataGridViewTextBoxColumn();
-            BtnRemover = new DataGridViewButtonColumn();
             CBProduto = new ComboBox();
             TxtId = new TextBox();
             TxtLote = new TextBox();
@@ -57,71 +49,31 @@
             BtnRegistro = new Button();
             BtnFechar = new Button();
             TxtQuantidade = new TextBox();
+            TxtTotalVenda = new TextBox();
+            label9 = new Label();
+            Idvenda = new DataGridViewTextBoxColumn();
+            idProduto = new DataGridViewTextBoxColumn();
+            ProdutoVenda = new DataGridViewTextBoxColumn();
+            LoteVenda = new DataGridViewTextBoxColumn();
+            CodigoBarra = new DataGridViewTextBoxColumn();
+            QuantidadeVenda = new DataGridViewTextBoxColumn();
+            QuantidadeEmEstoque = new DataGridViewTextBoxColumn();
+            ValorUnitarioVenda = new DataGridViewTextBoxColumn();
+            ValorTotalVenda = new DataGridViewTextBoxColumn();
+            BtnRemover = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)GrdVendas).BeginInit();
             SuspendLayout();
             // 
             // GrdVendas
             // 
             GrdVendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrdVendas.Columns.AddRange(new DataGridViewColumn[] { Idvenda, idProduto, ProdutoVenda, CodigoBarra, QuantidadeVenda, ValorUnitarioVenda, ValorTotalVenda, BtnRemover });
-            GrdVendas.Location = new Point(12, 159);
+            GrdVendas.Columns.AddRange(new DataGridViewColumn[] { Idvenda, idProduto, ProdutoVenda, LoteVenda, CodigoBarra, QuantidadeVenda, QuantidadeEmEstoque, ValorUnitarioVenda, ValorTotalVenda, BtnRemover });
+            GrdVendas.Location = new Point(12, 98);
             GrdVendas.Name = "GrdVendas";
-            GrdVendas.Size = new Size(827, 398);
+            GrdVendas.Size = new Size(1034, 459);
             GrdVendas.TabIndex = 0;
             GrdVendas.CellClick += GrdVendas_CellClick;
             GrdVendas.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // Idvenda
-            // 
-            Idvenda.DataPropertyName = "Id";
-            Idvenda.HeaderText = "Id Venda";
-            Idvenda.Name = "Idvenda";
-            Idvenda.Width = 60;
-            // 
-            // idProduto
-            // 
-            idProduto.HeaderText = "Id do produto";
-            idProduto.Name = "idProduto";
-            idProduto.Width = 60;
-            // 
-            // ProdutoVenda
-            // 
-            ProdutoVenda.DataPropertyName = "Produto";
-            ProdutoVenda.HeaderText = "Produto";
-            ProdutoVenda.Name = "ProdutoVenda";
-            ProdutoVenda.Width = 158;
-            // 
-            // CodigoBarra
-            // 
-            CodigoBarra.DataPropertyName = "Lote";
-            CodigoBarra.HeaderText = "Codigo de Barras";
-            CodigoBarra.Name = "CodigoBarra";
-            CodigoBarra.Width = 150;
-            // 
-            // QuantidadeVenda
-            // 
-            QuantidadeVenda.DataPropertyName = "Quantidade";
-            QuantidadeVenda.HeaderText = "Quantidade";
-            QuantidadeVenda.Name = "QuantidadeVenda";
-            QuantidadeVenda.Width = 75;
-            // 
-            // ValorUnitarioVenda
-            // 
-            ValorUnitarioVenda.DataPropertyName = "ValorUnitario";
-            ValorUnitarioVenda.HeaderText = "Valor Unitario";
-            ValorUnitarioVenda.Name = "ValorUnitarioVenda";
-            // 
-            // ValorTotalVenda
-            // 
-            ValorTotalVenda.DataPropertyName = "ValorTotal";
-            ValorTotalVenda.HeaderText = "Valor Total";
-            ValorTotalVenda.Name = "ValorTotalVenda";
-            // 
-            // BtnRemover
-            // 
-            BtnRemover.HeaderText = "Remover";
-            BtnRemover.Name = "BtnRemover";
-            BtnRemover.Width = 80;
             // 
             // CBProduto
             // 
@@ -143,7 +95,7 @@
             // TxtLote
             // 
             TxtLote.Enabled = false;
-            TxtLote.Location = new Point(12, 68);
+            TxtLote.Location = new Point(465, 25);
             TxtLote.Name = "TxtLote";
             TxtLote.Size = new Size(104, 23);
             TxtLote.TabIndex = 3;
@@ -169,7 +121,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 50);
+            label3.Location = new Point(465, 7);
             label3.Name = "label3";
             label3.Size = new Size(30, 15);
             label3.TabIndex = 6;
@@ -178,15 +130,15 @@
             // TxtBarra
             // 
             TxtBarra.Enabled = false;
-            TxtBarra.Location = new Point(122, 68);
+            TxtBarra.Location = new Point(575, 25);
             TxtBarra.Name = "TxtBarra";
-            TxtBarra.Size = new Size(337, 23);
+            TxtBarra.Size = new Size(245, 23);
             TxtBarra.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(122, 51);
+            label4.Location = new Point(575, 7);
             label4.Name = "label4";
             label4.Size = new Size(97, 15);
             label4.TabIndex = 8;
@@ -211,7 +163,8 @@
             // 
             // TxtValorTotal
             // 
-            TxtValorTotal.Location = new Point(317, 116);
+            TxtValorTotal.Enabled = false;
+            TxtValorTotal.Location = new Point(317, 69);
             TxtValorTotal.Name = "TxtValorTotal";
             TxtValorTotal.Size = new Size(143, 23);
             TxtValorTotal.TabIndex = 11;
@@ -219,25 +172,26 @@
             // 
             // TxtValorUnitario
             // 
-            TxtValorUnitario.Location = new Point(162, 116);
+            TxtValorUnitario.Enabled = false;
+            TxtValorUnitario.Location = new Point(162, 69);
             TxtValorUnitario.Name = "TxtValorUnitario";
             TxtValorUnitario.Size = new Size(149, 23);
             TxtValorUnitario.TabIndex = 12;
             // 
             // BtnAdicionar
             // 
-            BtnAdicionar.Location = new Point(479, 12);
+            BtnAdicionar.Location = new Point(869, 12);
             BtnAdicionar.Name = "BtnAdicionar";
             BtnAdicionar.Size = new Size(177, 54);
             BtnAdicionar.TabIndex = 13;
-            BtnAdicionar.Text = "Adicionar";
+            BtnAdicionar.Text = "Adicionar Produto";
             BtnAdicionar.UseVisualStyleBackColor = true;
             BtnAdicionar.Click += BtnAdicionar_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 99);
+            label6.Location = new Point(12, 51);
             label6.Name = "label6";
             label6.Size = new Size(117, 15);
             label6.TabIndex = 15;
@@ -246,7 +200,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(162, 98);
+            label7.Location = new Point(162, 51);
             label7.Name = "label7";
             label7.Size = new Size(78, 15);
             label7.TabIndex = 16;
@@ -255,7 +209,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(317, 98);
+            label8.Location = new Point(317, 51);
             label8.Name = "label8";
             label8.Size = new Size(61, 15);
             label8.TabIndex = 17;
@@ -263,25 +217,27 @@
             // 
             // BtnVenda
             // 
-            BtnVenda.Location = new Point(479, 86);
+            BtnVenda.Location = new Point(1079, 98);
             BtnVenda.Name = "BtnVenda";
             BtnVenda.Size = new Size(177, 54);
             BtnVenda.TabIndex = 18;
             BtnVenda.Text = "Confirmar Venda";
             BtnVenda.UseVisualStyleBackColor = true;
+            BtnVenda.Click += BtnVenda_Click;
             // 
             // BtnRegistro
             // 
-            BtnRegistro.Location = new Point(662, 12);
+            BtnRegistro.Location = new Point(1079, 12);
             BtnRegistro.Name = "BtnRegistro";
             BtnRegistro.Size = new Size(177, 54);
             BtnRegistro.TabIndex = 19;
             BtnRegistro.Text = "Ver Registro de Produtos";
             BtnRegistro.UseVisualStyleBackColor = true;
+            BtnRegistro.Click += BtnRegistro_Click;
             // 
             // BtnFechar
             // 
-            BtnFechar.Location = new Point(662, 86);
+            BtnFechar.Location = new Point(1079, 494);
             BtnFechar.Name = "BtnFechar";
             BtnFechar.Size = new Size(177, 54);
             BtnFechar.TabIndex = 20;
@@ -291,16 +247,98 @@
             // 
             // TxtQuantidade
             // 
-            TxtQuantidade.Location = new Point(12, 116);
+            TxtQuantidade.Location = new Point(12, 69);
             TxtQuantidade.Name = "TxtQuantidade";
             TxtQuantidade.Size = new Size(144, 23);
             TxtQuantidade.TabIndex = 21;
+            TxtQuantidade.TextChanged += TxtQuantidade_TextChanged;
+            // 
+            // TxtTotalVenda
+            // 
+            TxtTotalVenda.Enabled = false;
+            TxtTotalVenda.Location = new Point(469, 69);
+            TxtTotalVenda.Name = "TxtTotalVenda";
+            TxtTotalVenda.Size = new Size(157, 23);
+            TxtTotalVenda.TabIndex = 22;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(469, 51);
+            label9.Name = "label9";
+            label9.Size = new Size(112, 15);
+            label9.TabIndex = 23;
+            label9.Text = "Valor Total da Venda";
+            // 
+            // Idvenda
+            // 
+            Idvenda.DataPropertyName = "Id";
+            Idvenda.HeaderText = "Id Venda";
+            Idvenda.Name = "Idvenda";
+            Idvenda.Width = 60;
+            // 
+            // idProduto
+            // 
+            idProduto.HeaderText = "Id do produto";
+            idProduto.Name = "idProduto";
+            idProduto.Width = 60;
+            // 
+            // ProdutoVenda
+            // 
+            ProdutoVenda.DataPropertyName = "Produto";
+            ProdutoVenda.HeaderText = "Produto";
+            ProdutoVenda.Name = "ProdutoVenda";
+            ProdutoVenda.Width = 158;
+            // 
+            // LoteVenda
+            // 
+            LoteVenda.HeaderText = "Lote";
+            LoteVenda.Name = "LoteVenda";
+            LoteVenda.Width = 80;
+            // 
+            // CodigoBarra
+            // 
+            CodigoBarra.DataPropertyName = "Lote";
+            CodigoBarra.HeaderText = "Codigo de Barras";
+            CodigoBarra.Name = "CodigoBarra";
+            CodigoBarra.Width = 150;
+            // 
+            // QuantidadeVenda
+            // 
+            QuantidadeVenda.DataPropertyName = "Quantidade";
+            QuantidadeVenda.HeaderText = "Quantidade a vender";
+            QuantidadeVenda.Name = "QuantidadeVenda";
+            QuantidadeVenda.Width = 75;
+            // 
+            // QuantidadeEmEstoque
+            // 
+            QuantidadeEmEstoque.HeaderText = "Quantia em estoque";
+            QuantidadeEmEstoque.Name = "QuantidadeEmEstoque";
+            // 
+            // ValorUnitarioVenda
+            // 
+            ValorUnitarioVenda.DataPropertyName = "ValorUnitario";
+            ValorUnitarioVenda.HeaderText = "Valor Unitario";
+            ValorUnitarioVenda.Name = "ValorUnitarioVenda";
+            // 
+            // ValorTotalVenda
+            // 
+            ValorTotalVenda.DataPropertyName = "ValorTotal";
+            ValorTotalVenda.HeaderText = "Valor Total";
+            ValorTotalVenda.Name = "ValorTotalVenda";
+            // 
+            // BtnRemover
+            // 
+            BtnRemover.HeaderText = "Remover";
+            BtnRemover.Name = "BtnRemover";
             // 
             // FrmGuiaVendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(846, 569);
+            ClientSize = new Size(1268, 569);
+            Controls.Add(label9);
+            Controls.Add(TxtTotalVenda);
             Controls.Add(TxtQuantidade);
             Controls.Add(BtnFechar);
             Controls.Add(BtnRegistro);
@@ -353,14 +391,18 @@
         private Button BtnRegistro;
         private Button BtnFechar;
         private TextBox TxtQuantidade;
+        private DataGridViewButtonColumn BtnExcluir;
+        private TextBox TxtTotalVenda;
+        private Label label9;
         private DataGridViewTextBoxColumn Idvenda;
         private DataGridViewTextBoxColumn idProduto;
         private DataGridViewTextBoxColumn ProdutoVenda;
+        private DataGridViewTextBoxColumn LoteVenda;
         private DataGridViewTextBoxColumn CodigoBarra;
         private DataGridViewTextBoxColumn QuantidadeVenda;
+        private DataGridViewTextBoxColumn QuantidadeEmEstoque;
         private DataGridViewTextBoxColumn ValorUnitarioVenda;
         private DataGridViewTextBoxColumn ValorTotalVenda;
-        private DataGridViewButtonColumn BtnExcluir;
         private DataGridViewButtonColumn BtnRemover;
     }
 }

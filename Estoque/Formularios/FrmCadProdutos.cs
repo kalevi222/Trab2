@@ -218,6 +218,12 @@ namespace Estoque.Formularios
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
             CarregaGrid();
+            TxtPesquisa.Text = "";
+        }
+
+        private void TxtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,7 +45,6 @@
             ckbMarcas = new CheckBox();
             CkbFornecedor = new CheckBox();
             GrdItem = new DataGridView();
-            CkbAddPedidos = new CheckBox();
             ID2 = new DataGridViewTextBoxColumn();
             Nome2 = new DataGridViewTextBoxColumn();
             CadProd = new DataGridViewTextBoxColumn();
@@ -58,13 +57,19 @@
             PerADM = new DataGridViewTextBoxColumn();
             AlterarUsuarios = new DataGridViewButtonColumn();
             ExcluirUsuarios = new DataGridViewButtonColumn();
+            CkbAddPedidos = new CheckBox();
+            BtnLimpar = new Button();
+            TxtPesquisa = new TextBox();
+            label5 = new Label();
+            CBPesquisa = new ComboBox();
+            BtnPesquisar = new Button();
             ((System.ComponentModel.ISupportInitialize)GrdItem).BeginInit();
             SuspendLayout();
             // 
             // ckbCadPro
             // 
             ckbCadPro.AutoSize = true;
-            ckbCadPro.Location = new Point(21, 101);
+            ckbCadPro.Location = new Point(12, 72);
             ckbCadPro.Name = "ckbCadPro";
             ckbCadPro.Size = new Size(127, 19);
             ckbCadPro.TabIndex = 0;
@@ -75,7 +80,7 @@
             // CkbCadCat
             // 
             CkbCadCat.AutoSize = true;
-            CkbCadCat.Location = new Point(166, 101);
+            CkbCadCat.Location = new Point(157, 72);
             CkbCadCat.Name = "CkbCadCat";
             CkbCadCat.Size = new Size(135, 19);
             CkbCadCat.TabIndex = 1;
@@ -86,7 +91,7 @@
             // CkbAddPro
             // 
             CkbAddPro.AutoSize = true;
-            CkbAddPro.Location = new Point(323, 101);
+            CkbAddPro.Location = new Point(314, 72);
             CkbAddPro.Name = "CkbAddPro";
             CkbAddPro.Size = new Size(181, 19);
             CkbAddPro.TabIndex = 2;
@@ -97,7 +102,7 @@
             // CkbCadUsuario
             // 
             CkbCadUsuario.AutoSize = true;
-            CkbCadUsuario.Location = new Point(21, 126);
+            CkbCadUsuario.Location = new Point(12, 97);
             CkbCadUsuario.Name = "CkbCadUsuario";
             CkbCadUsuario.Size = new Size(91, 19);
             CkbCadUsuario.TabIndex = 3;
@@ -108,7 +113,7 @@
             // CkbADM
             // 
             CkbADM.AutoSize = true;
-            CkbADM.Location = new Point(801, 101);
+            CkbADM.Location = new Point(501, 97);
             CkbADM.Name = "CkbADM";
             CkbADM.Size = new Size(53, 19);
             CkbADM.TabIndex = 4;
@@ -118,24 +123,24 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(118, 39);
+            txtNome.Location = new Point(101, 21);
             txtNome.MaxLength = 60;
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(485, 23);
+            txtNome.Size = new Size(363, 23);
             txtNome.TabIndex = 5;
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(609, 39);
+            txtSenha.Location = new Point(470, 21);
             txtSenha.MaxLength = 50;
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(409, 23);
+            txtSenha.Size = new Size(254, 23);
             txtSenha.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(118, 21);
+            label1.Location = new Point(101, 3);
             label1.Name = "label1";
             label1.Size = new Size(47, 15);
             label1.TabIndex = 7;
@@ -144,7 +149,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(609, 21);
+            label2.Location = new Point(470, 3);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 8;
@@ -153,7 +158,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(21, 76);
+            label3.Location = new Point(12, 47);
             label3.Name = "label3";
             label3.Size = new Size(66, 15);
             label3.TabIndex = 9;
@@ -171,7 +176,7 @@
             // 
             // BtnSair
             // 
-            BtnSair.Location = new Point(894, 149);
+            BtnSair.Location = new Point(600, 149);
             BtnSair.Name = "BtnSair";
             BtnSair.Size = new Size(124, 44);
             BtnSair.TabIndex = 12;
@@ -181,16 +186,16 @@
             // 
             // txtID
             // 
-            txtID.Location = new Point(12, 39);
+            txtID.Location = new Point(12, 21);
             txtID.MaxLength = 4;
             txtID.Name = "txtID";
-            txtID.Size = new Size(100, 23);
+            txtID.Size = new Size(75, 23);
             txtID.TabIndex = 13;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 21);
+            label4.Location = new Point(12, 3);
             label4.Name = "label4";
             label4.Size = new Size(18, 15);
             label4.TabIndex = 14;
@@ -199,7 +204,7 @@
             // ckbMarcas
             // 
             ckbMarcas.AutoSize = true;
-            ckbMarcas.Location = new Point(510, 101);
+            ckbMarcas.Location = new Point(314, 97);
             ckbMarcas.Name = "ckbMarcas";
             ckbMarcas.Size = new Size(117, 19);
             ckbMarcas.TabIndex = 15;
@@ -210,7 +215,7 @@
             // CkbFornecedor
             // 
             CkbFornecedor.AutoSize = true;
-            CkbFornecedor.Location = new Point(633, 101);
+            CkbFornecedor.Location = new Point(501, 72);
             CkbFornecedor.Name = "CkbFornecedor";
             CkbFornecedor.Size = new Size(150, 19);
             CkbFornecedor.TabIndex = 16;
@@ -223,23 +228,12 @@
             GrdItem.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItem.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrdItem.Columns.AddRange(new DataGridViewColumn[] { ID2, Nome2, CadProd, CadCate, AddRemProd, CadMarc, CadForn, CadUsua, PermissaPedidos, PerADM, AlterarUsuarios, ExcluirUsuarios });
-            GrdItem.Location = new Point(12, 199);
+            GrdItem.Location = new Point(12, 211);
             GrdItem.Name = "GrdItem";
             GrdItem.Size = new Size(1010, 406);
             GrdItem.TabIndex = 17;
             GrdItem.CellClick += GrdItem_CellClick;
             GrdItem.CellContentClick += GrdItem_CellContentClick;
-            // 
-            // CkbAddPedidos
-            // 
-            CkbAddPedidos.AutoSize = true;
-            CkbAddPedidos.Location = new Point(166, 126);
-            CkbAddPedidos.Name = "CkbAddPedidos";
-            CkbAddPedidos.Size = new Size(119, 19);
-            CkbAddPedidos.TabIndex = 18;
-            CkbAddPedidos.Text = "Adcionar Pedidos";
-            CkbAddPedidos.UseVisualStyleBackColor = true;
-            CkbAddPedidos.CheckedChanged += CBAddPedidos_CheckedChanged;
             // 
             // ID2
             // 
@@ -321,11 +315,75 @@
             ExcluirUsuarios.HeaderText = "Excluir";
             ExcluirUsuarios.Name = "ExcluirUsuarios";
             // 
+            // CkbAddPedidos
+            // 
+            CkbAddPedidos.AutoSize = true;
+            CkbAddPedidos.Location = new Point(157, 97);
+            CkbAddPedidos.Name = "CkbAddPedidos";
+            CkbAddPedidos.Size = new Size(119, 19);
+            CkbAddPedidos.TabIndex = 18;
+            CkbAddPedidos.Text = "Adcionar Pedidos";
+            CkbAddPedidos.UseVisualStyleBackColor = true;
+            CkbAddPedidos.CheckedChanged += CBAddPedidos_CheckedChanged;
+            // 
+            // BtnLimpar
+            // 
+            BtnLimpar.Location = new Point(891, 138);
+            BtnLimpar.Name = "BtnLimpar";
+            BtnLimpar.Size = new Size(127, 55);
+            BtnLimpar.TabIndex = 24;
+            BtnLimpar.Text = "Limpar";
+            BtnLimpar.UseVisualStyleBackColor = true;
+            BtnLimpar.Click += BtnLimpar_Click;
+            // 
+            // TxtPesquisa
+            // 
+            TxtPesquisa.Location = new Point(758, 68);
+            TxtPesquisa.Name = "TxtPesquisa";
+            TxtPesquisa.Size = new Size(260, 23);
+            TxtPesquisa.TabIndex = 23;
+            TxtPesquisa.Text = "Valor de pesquisa";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(869, 3);
+            label5.Name = "label5";
+            label5.Size = new Size(57, 15);
+            label5.TabIndex = 22;
+            label5.Text = "Pesquisar";
+            // 
+            // CBPesquisa
+            // 
+            CBPesquisa.FormattingEnabled = true;
+            CBPesquisa.Items.AddRange(new object[] { "ID", "Usuario" });
+            CBPesquisa.Location = new Point(758, 21);
+            CBPesquisa.Name = "CBPesquisa";
+            CBPesquisa.Size = new Size(260, 23);
+            CBPesquisa.TabIndex = 21;
+            CBPesquisa.Text = "Tipo de pesquisa";
+            CBPesquisa.SelectedIndexChanged += CBPesquisa_SelectedIndexChanged;
+            // 
+            // BtnPesquisar
+            // 
+            BtnPesquisar.Location = new Point(758, 138);
+            BtnPesquisar.Name = "BtnPesquisar";
+            BtnPesquisar.Size = new Size(127, 55);
+            BtnPesquisar.TabIndex = 20;
+            BtnPesquisar.Text = "pesquisar";
+            BtnPesquisar.UseVisualStyleBackColor = true;
+            BtnPesquisar.Click += BtnPesquisar_Click;
+            // 
             // FrmUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1034, 617);
+            ClientSize = new Size(1034, 629);
+            Controls.Add(BtnLimpar);
+            Controls.Add(TxtPesquisa);
+            Controls.Add(label5);
+            Controls.Add(CBPesquisa);
+            Controls.Add(BtnPesquisar);
             Controls.Add(CkbAddPedidos);
             Controls.Add(GrdItem);
             Controls.Add(CkbFornecedor);
@@ -384,5 +442,10 @@
         private DataGridViewTextBoxColumn PerADM;
         private DataGridViewButtonColumn AlterarUsuarios;
         private DataGridViewButtonColumn ExcluirUsuarios;
+        private Button BtnLimpar;
+        private TextBox TxtPesquisa;
+        private Label label5;
+        private ComboBox CBPesquisa;
+        private Button BtnPesquisar;
     }
 }

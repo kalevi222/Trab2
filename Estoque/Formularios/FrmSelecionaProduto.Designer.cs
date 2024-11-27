@@ -28,32 +28,109 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            GrdItens = new DataGridView();
+            BtnFechar = new Button();
+            ID = new DataGridViewTextBoxColumn();
+            ProdutoNome = new DataGridViewTextBoxColumn();
+            LoteProduto = new DataGridViewTextBoxColumn();
+            QuantidadeProduto = new DataGridViewTextBoxColumn();
+            CodigoBarrasProduto = new DataGridViewTextBoxColumn();
+            ValorUnitarioProduto = new DataGridViewTextBoxColumn();
+            BtnSelecionar = new DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // GrdItens
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(767, 426);
-            dataGridView1.TabIndex = 0;
+            GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GrdItens.Columns.AddRange(new DataGridViewColumn[] { ID, ProdutoNome, LoteProduto, QuantidadeProduto, CodigoBarrasProduto, ValorUnitarioProduto, BtnSelecionar });
+            GrdItens.Location = new Point(12, 12);
+            GrdItens.Name = "GrdItens";
+            GrdItens.Size = new Size(767, 351);
+            GrdItens.TabIndex = 0;
+            GrdItens.CellClick += GrdItens_CellClick;
+            // 
+            // BtnFechar
+            // 
+            BtnFechar.Location = new Point(592, 369);
+            BtnFechar.Name = "BtnFechar";
+            BtnFechar.Size = new Size(187, 52);
+            BtnFechar.TabIndex = 1;
+            BtnFechar.Text = "Fechar";
+            BtnFechar.UseVisualStyleBackColor = true;
+            BtnFechar.Click += BtnFechar_Click;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "Id";
+            ID.HeaderText = "Id Estoque";
+            ID.Name = "ID";
+            ID.Width = 70;
+            // 
+            // ProdutoNome
+            // 
+            ProdutoNome.DataPropertyName = "Nome";
+            ProdutoNome.HeaderText = "Produto";
+            ProdutoNome.Name = "ProdutoNome";
+            ProdutoNome.Width = 150;
+            // 
+            // LoteProduto
+            // 
+            LoteProduto.DataPropertyName = "Lote";
+            LoteProduto.HeaderText = "Lote";
+            LoteProduto.Name = "LoteProduto";
+            LoteProduto.Width = 80;
+            // 
+            // QuantidadeProduto
+            // 
+            QuantidadeProduto.DataPropertyName = "QTD";
+            QuantidadeProduto.HeaderText = "Quantidade em estoque";
+            QuantidadeProduto.Name = "QuantidadeProduto";
+            QuantidadeProduto.Width = 80;
+            // 
+            // CodigoBarrasProduto
+            // 
+            CodigoBarrasProduto.DataPropertyName = "Barra";
+            CodigoBarrasProduto.HeaderText = "Codigo de Barras";
+            CodigoBarrasProduto.Name = "CodigoBarrasProduto";
+            CodigoBarrasProduto.Width = 150;
+            // 
+            // ValorUnitarioProduto
+            // 
+            ValorUnitarioProduto.DataPropertyName = "Preco";
+            ValorUnitarioProduto.HeaderText = "Preço";
+            ValorUnitarioProduto.Name = "ValorUnitarioProduto";
+            ValorUnitarioProduto.Width = 90;
+            // 
+            // BtnSelecionar
+            // 
+            BtnSelecionar.HeaderText = "Selecionar";
+            BtnSelecionar.Name = "BtnSelecionar";
             // 
             // FrmSelecionaProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(800, 431);
+            Controls.Add(BtnFechar);
+            Controls.Add(GrdItens);
             Name = "FrmSelecionaProduto";
             Text = "FrmSelecionaProduto";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += FrmSelecionaProduto_Load;
+            ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView GrdItens;
+        private Button BtnFechar;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn ProdutoNome;
+        private DataGridViewTextBoxColumn LoteProduto;
+        private DataGridViewTextBoxColumn QuantidadeProduto;
+        private DataGridViewTextBoxColumn CodigoBarrasProduto;
+        private DataGridViewTextBoxColumn ValorUnitarioProduto;
+        private DataGridViewButtonColumn BtnSelecionar;
     }
 }

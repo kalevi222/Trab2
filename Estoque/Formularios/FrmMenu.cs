@@ -106,6 +106,7 @@ namespace Estoque
         private void gerirProdutosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGerir oFrm = new FrmGerir();
+            formGerir = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -113,6 +114,7 @@ namespace Estoque
         private void cadastrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmUsuario oFrm = new FrmUsuario();
+            formUsuario = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -130,11 +132,75 @@ namespace Estoque
             Login.PVenda2 = false;
 
             Permissoes();
-        
+
+        }
+
+
+        private FrmMarca formMarca;
+        private FrmFornecedor formFornecedor;
+        private FrmAdEstoque formAdEstoque;
+        private FrmCadProdutos formCadProdutos;
+        private FrmCategoria formCategoria;
+        private FrmEstoqueConsulta formEstoqueConsulta;
+        private FrmAddPedido formAddPedido;
+        private FrmGuiaVendas formGuiaVendas;
+        private FrmConsultarPedido formConsultarPedidos;
+        private FrmRegistroVenda formRegistroVenda;
+        private FrmUsuario formUsuario;
+        private FrmGerir formGerir;
+        private void FecharFormulario()
+        {
+
+            if (formAddPedido != null && !formAddPedido.IsDisposed)
+            {
+                formAddPedido.Close(); // Fechar o formulário
+            };
+            if (formCategoria != null && !formCategoria.IsDisposed)
+            {
+                formCategoria.Close(); // Fechar o formulário
+            };
+            if (formMarca != null && !formMarca.IsDisposed)
+            {
+                formMarca.Close(); // Fechar o formulário
+            };
+            if (formFornecedor != null && !formFornecedor.IsDisposed)
+            {
+                formFornecedor.Close(); // Fechar o formulário
+            };
+            if (formCadProdutos != null && !formCadProdutos.IsDisposed)
+            {
+                formCadProdutos.Close(); // Fechar o formulário
+            };
+            if (formAdEstoque != null && !formAdEstoque.IsDisposed)
+            {
+                formAdEstoque.Close(); // Fechar o formulário
+            };
+            if (formEstoqueConsulta != null && !formEstoqueConsulta.IsDisposed)
+            {
+                formEstoqueConsulta.Close(); // Fechar o formulário
+            };
+            if (formGuiaVendas != null && !formGuiaVendas.IsDisposed)
+            {
+                formGuiaVendas.Close(); // Fechar o formulário
+            };
+            if (formRegistroVenda != null && !formRegistroVenda.IsDisposed)
+            {
+                formRegistroVenda.Close(); // Fechar o formulário
+            };
+            if (formUsuario != null && !formUsuario.IsDisposed)
+            {
+                formUsuario.Close(); // Fechar o formulário
+            };
+            if (formGerir != null && !formGerir.IsDisposed)
+            {
+                formGerir.Close(); // Fechar o formulário
+            };
+
         }
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LimparPermissao();
+            FecharFormulario();
 
             FrmLogin loginForm = new FrmLogin();
 
@@ -149,6 +215,7 @@ namespace Estoque
         private void cadastrarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCategoria oFrm = new FrmCategoria();
+            formCategoria = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
 
@@ -157,6 +224,7 @@ namespace Estoque
         private void cadastrarMarcasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmMarca oFrm = new FrmMarca();
+            formMarca = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -164,6 +232,7 @@ namespace Estoque
         private void cadastrarFornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmFornecedor oFrm = new FrmFornecedor();
+            formFornecedor = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -171,6 +240,7 @@ namespace Estoque
         private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCadProdutos oFrm = new FrmCadProdutos();
+            formCadProdutos = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -178,6 +248,7 @@ namespace Estoque
         private void adcionarbaixarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAdEstoque oFrm = new FrmAdEstoque();
+            formAdEstoque = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -185,6 +256,7 @@ namespace Estoque
         private void gerirProdutosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmEstoqueConsulta oFrm = new FrmEstoqueConsulta();
+            formEstoqueConsulta = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -192,6 +264,7 @@ namespace Estoque
         private void AddPedidos_Click(object sender, EventArgs e)
         {
             FrmAddPedido oFrm = new FrmAddPedido();
+            formAddPedido = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -199,6 +272,7 @@ namespace Estoque
         private void GuiaVendas_Click(object sender, EventArgs e)
         {
             FrmGuiaVendas oFrm = new FrmGuiaVendas();
+            formGuiaVendas = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -206,6 +280,7 @@ namespace Estoque
         private void consultarPedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmConsultarPedido oFrm = new FrmConsultarPedido();
+            formConsultarPedidos = oFrm;
             oFrm.MdiParent = this;
             oFrm.Show();
         }
@@ -218,6 +293,14 @@ namespace Estoque
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void HistoVendas_Click(object sender, EventArgs e)
+        {
+            FrmRegistroVenda oFrm = new FrmRegistroVenda();
+            formRegistroVenda = oFrm;
+            oFrm.MdiParent = this;
+            oFrm.Show();
         }
     }
 }

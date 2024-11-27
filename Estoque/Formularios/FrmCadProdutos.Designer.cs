@@ -246,6 +246,7 @@
             label4.Size = new Size(57, 15);
             label4.TabIndex = 17;
             label4.Text = "Pesquisar";
+            //label4.Click += this.label4_Click;
             // 
             // TxtPesquisa
             // 
@@ -254,6 +255,7 @@
             TxtPesquisa.Size = new Size(260, 23);
             TxtPesquisa.TabIndex = 18;
             TxtPesquisa.Text = "Valor de pesquisa";
+            TxtPesquisa.TextChanged += TxtPesquisa_TextChanged;
             // 
             // BtnLimpar
             // 

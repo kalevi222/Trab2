@@ -156,7 +156,7 @@ namespace Estoque.Formularios
                     PesquisaTipo = "NumPedido";
                 }
             };
-            
+
             if (GrdPesquisa == 1)
             {
                 if (CBPesquisa.SelectedIndex == 0)
@@ -169,7 +169,12 @@ namespace Estoque.Formularios
                 }
 
             };
-            
+
+        }
+
+        private void TxtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

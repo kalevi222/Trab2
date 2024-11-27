@@ -235,6 +235,7 @@
             label6.Size = new Size(111, 15);
             label6.TabIndex = 30;
             label6.Text = "Criterio de pesquisa";
+            //label6.Click += this.label6_Click;
             // 
             // TxtPesquisa
             // 
@@ -242,6 +243,7 @@
             TxtPesquisa.Name = "TxtPesquisa";
             TxtPesquisa.Size = new Size(194, 23);
             TxtPesquisa.TabIndex = 31;
+            TxtPesquisa.TextChanged += TxtPesquisa_TextChanged;
             // 
             // CBPesquisa
             // 
@@ -260,12 +262,13 @@
             label7.Size = new Size(95, 15);
             label7.TabIndex = 33;
             label7.Text = "Tipo de pesquisa";
+            //label7.Click += this.label7_Click;
             // 
             // GrdItens2
             // 
             GrdItens2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrdItens2.Columns.AddRange(new DataGridViewColumn[] { IdProd, ProdutoNome, QTDPRoduto, PrecoProduto });
-            GrdItens2.Location = new Point(16, 113);
+            GrdItens2.Location = new Point(16, 176);
             GrdItens2.Name = "GrdItens2";
             GrdItens2.Size = new Size(776, 325);
             GrdItens2.TabIndex = 34;

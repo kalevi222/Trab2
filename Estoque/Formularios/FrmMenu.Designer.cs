@@ -83,6 +83,7 @@
             HistoVendas.Name = "HistoVendas";
             HistoVendas.Size = new Size(183, 22);
             HistoVendas.Text = "Historico de Vendas";
+            HistoVendas.Click += HistoVendas_Click;
             // 
             // gerirProdutosToolStripMenuItem
             // 
@@ -175,14 +176,14 @@
             // 
             AddPedidos.Enabled = false;
             AddPedidos.Name = "AddPedidos";
-            AddPedidos.Size = new Size(180, 22);
+            AddPedidos.Size = new Size(170, 22);
             AddPedidos.Text = "Adcionar Pedidos";
             AddPedidos.Click += AddPedidos_Click;
             // 
             // consultarPedidosToolStripMenuItem
             // 
             consultarPedidosToolStripMenuItem.Name = "consultarPedidosToolStripMenuItem";
-            consultarPedidosToolStripMenuItem.Size = new Size(180, 22);
+            consultarPedidosToolStripMenuItem.Size = new Size(170, 22);
             consultarPedidosToolStripMenuItem.Text = "Consultar Pedidos";
             consultarPedidosToolStripMenuItem.Click += consultarPedidosToolStripMenuItem_Click;
             // 
@@ -196,14 +197,14 @@
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(180, 22);
+            logoutToolStripMenuItem.Size = new Size(174, 22);
             logoutToolStripMenuItem.Text = "Voltar ao Login";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // fecharToolStripMenuItem
             // 
             fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            fecharToolStripMenuItem.Size = new Size(180, 22);
+            fecharToolStripMenuItem.Size = new Size(174, 22);
             fecharToolStripMenuItem.Text = "Fechar o programa";
             fecharToolStripMenuItem.Click += fecharToolStripMenuItem_Click;
             // 
