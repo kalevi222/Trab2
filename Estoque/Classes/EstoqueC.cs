@@ -220,5 +220,48 @@ namespace Estoque.Classes
                 return retorno;
             }
         }
+
+        public static List<EstoqueC> Seleciona2(string tipoPesquisa, string codigo)
+        {
+            using (var oCn = Data.Conexao())
+            {
+                var retorno = new List<EstoqueC>();
+                string sql = $"Select P.Nome, E.id, E.DataAdicao, E.Lote, E.Preco, E.QuantidadeAdicionada as QTD, E.Validade, PE.Produto_id as Pid, M.Nome as Marca, C.Nome as Categoria, P.CodigoBarra From Estoque as E join Produto_has_Estoque as PE on E.id = PE.Estoque_id  join Produto as P on PE.Produto_id = P.id join Categoria as C on C.id = P.id join Marca as M on M.id = P.id where {tipoPesquisa} BETWEEN @Hoje AND @Codigo";
+
+                using (var comando = new SqlCommand(sql, oCn))
+                {
+
+                    
+                    comando.Parameters.AddWithValue("@Codigo", FrmAdEstoque.Data4.Date);
+                    comando.Parameters.AddWithValue("@Hoje", DateTime.Now);
+
+
+                    using (var oDr = comando.ExecuteReader())
+                    {
+
+
+                        while (oDr.Read())
+                        {
+                            var oEstoque = new EstoqueC
+                            {
+                                Id = oDr.GetInt32(oDr.GetOrdinal("id")),
+                                Nome = oDr.GetString(oDr.GetOrdinal("Nome")),
+                                Data2 = oDr.GetDateTime(oDr.GetOrdinal("DataAdicao")),
+                                Data3 = oDr.GetDateTime(oDr.GetOrdinal("Validade")),
+                                QTD = oDr.GetInt32(oDr.GetOrdinal("QTD")),
+                                Lote = oDr.GetInt32(oDr.GetOrdinal("Lote")),
+                                Preco = oDr.GetDouble(oDr.GetOrdinal("Preco")),
+                                Marca = oDr.GetString(oDr.GetOrdinal("Marca")),
+                                Categoria = oDr.GetString(oDr.GetOrdinal("Categoria")),
+                                PId = oDr.GetInt32(oDr.GetOrdinal("Pid")),
+                                Barra = oDr.GetInt64(oDr.GetOrdinal("CodigoBarra")),
+                            };
+                            retorno.Add(oEstoque);
+                        }
+                    }
+                }
+                return retorno;
+            }
+        }
     }
 }

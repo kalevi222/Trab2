@@ -160,5 +160,42 @@ namespace Estoque.Classes
                 return count > 0;
             }
         }
+
+        public static List<Usuarios> Seleciona(string tipoPesquisa, string codigo)
+        {
+            using (var oCn = Data.Conexao())
+            {
+                var retorno = new List<Usuarios>();
+                string sql = $"select id, Nome, Senha, PermissaoProduto, PermissaoCategoria, PermissaoAdiRemProduto, PermissaoADM, PermissaoFornecedor, PermissaoMarca, PermissaoGerirVenda, PermissaoGerirPedido from Usuario WHERE {tipoPesquisa} = @Codigo";
+
+                using (var comando = new SqlCommand(sql, oCn))
+                {
+                    comando.Parameters.AddWithValue("@Codigo", codigo);
+
+                    using (var oDr = comando.ExecuteReader())
+                    {
+                        while (oDr.Read())
+                        {
+                            retorno.Add(new Usuarios
+                            {
+                                Id = oDr.GetInt32(oDr.GetOrdinal("id")),
+                                Nome = oDr.GetString(oDr.GetOrdinal("Nome")),
+                                Senha = oDr.GetString(oDr.GetOrdinal("Senha")),
+                                PADM = oDr.GetBoolean(oDr.GetOrdinal("PermissaoADM")),
+                                CadPro = oDr.GetBoolean(oDr.GetOrdinal("PermissaoProduto")),
+                                CadCat = oDr.GetBoolean(oDr.GetOrdinal("PermissaoCategoria")),
+                                CadFor = oDr.GetBoolean(oDr.GetOrdinal("PermissaoFornecedor")),
+                                CadMarca = oDr.GetBoolean(oDr.GetOrdinal("PermissaoMarca")),
+                                PAddPro = oDr.GetBoolean(oDr.GetOrdinal("PermissaoAdiRemProduto")),
+                                PVenda = oDr.GetBoolean(oDr.GetOrdinal("PermissaoGerirVenda")),
+                                PPedido = oDr.GetBoolean(oDr.GetOrdinal("PermissaoGerirPedido")),
+                            });
+                        }
+                    }
+                }
+
+                return retorno;
+            }
+        }
     }
 }

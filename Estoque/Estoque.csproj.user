@@ -43,6 +43,9 @@
     <Compile Update="Formularios\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\FrmRegistroVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\FrmSelecionaProduto.cs">
       <SubType>Form</SubType>
     </Compile>

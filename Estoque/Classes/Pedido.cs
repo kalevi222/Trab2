@@ -69,7 +69,6 @@ namespace Estoque.Classes
         public static string Status2;
         public static string Produto2;
         public static DateTime Date3;
-
         public static List<Pedido> ObterProdutos()
         {
 
@@ -168,6 +167,13 @@ namespace Estoque.Classes
 
         public void Excluir()
         {
+            using (var oCn = Data.Conexao())
+            {
+                string SQL = $"Delete from Pedido_has_Produto Where Pedido_id= {this.Id}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
+
+            }
             using (var oCn = Data.Conexao())
             {
                 string SQL2 = $"Delete from Pedido Where id= {this.Id}";
