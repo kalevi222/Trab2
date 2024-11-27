@@ -61,8 +61,7 @@ namespace Estoque.Formularios
 
                     try
                     {
-                        oCategoria.Incluir();
-                        MessageBox.Show("Categoria incluída com sucesso!", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        oCategoria.Incluir();                       
                         CarregaGrid();
                         LimpaControles();
                     }
@@ -186,6 +185,7 @@ namespace Estoque.Formularios
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
             CarregaGrid();
+            TxtPesquisa.Text = "";
         }
     }
 }
